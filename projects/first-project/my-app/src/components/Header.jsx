@@ -1,11 +1,12 @@
 import React from 'react';
+import './Header.css';
 
 const Header = () => {
     return (
         <header className="header">
             <div className="header-inner-wrapper">
-                <div className="logo">
-                    <img src='https://senticode.by/img/logo.png'></img>
+                <div className="logo_wrapper">
+                    <img class="logo" src='https://senticode.by/img/logo.png' alt="logo"></img>
                 </div>
                 <nav className="navbar">
                     <ul className="navbar_list">

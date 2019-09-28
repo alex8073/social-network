@@ -1,39 +1,7 @@
 @import 'normalize.css';
 
 body {
-  background-color: blanchedalmond;
+  background-color: #eee;
 }
 
-.header-inner-wrapper {
-  width: 1140px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: aquamarine;
-}
 
-.navbar_list {
-  display: flex;
-  list-style: none;
-  background-color: brown;
-  padding: 0;
-}
-
-.navbar_list_item_link {
-  display: block;
-  padding: 10px;
-  background-color: coral;
-  font-size: 30px;
-}
-
-.about-us {
-  background-image: url(https://themebootstrap.net/primes-v1.5.4/template-02/assets/img/backgrounds/3.jpg);
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: contain;
-  width: 1140px;
-  margin: 0 auto;
-  height: 700px;
-  
-}

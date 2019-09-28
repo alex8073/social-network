@@ -1,0 +1,35 @@
+.about-us {
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+.about-us:before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: -999999;
+}
+
+.about-us_inner-wrapper {
+  width: 1140px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: column;
+  color: #333;
+}
+
+.about-us_caption {
+  font-size: 40px;
+  font-weight: normal;
+  margin-bottom: 10px;
+}
+
+.about-us_description {
+  text-align: center;
+  font-size: 22px;
+  line-height: 38px;
+  margin-top: 10px;
+}
