@@ -1,9 +1,9 @@
 import React from 'react';
-import './Learning.css';
+import classes from './Learning.module.css';
 
 const Learning = () => {
     return (
-        <div className="learning">
+        <div className={classes.learning}>
             learning
         </div>
     )

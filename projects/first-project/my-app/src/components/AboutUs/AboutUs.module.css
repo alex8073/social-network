@@ -1,10 +1,10 @@
-.about-us {
+.about_us {
   display: flex;
   justify-content: center;
   position: relative;
 }
 
-.about-us:before {
+.about_us:before {
   content: '';
   position: absolute;
   width: 100%;
@@ -12,7 +12,7 @@
   z-index: -999999;
 }
 
-.about-us_inner-wrapper {
+.about_us_inner_wrapper {
   width: 1140px;
   display: flex;
   justify-content: start;
@@ -21,13 +21,13 @@
   color: #333;
 }
 
-.about-us_caption {
+.about_us_caption {
   font-size: 40px;
   font-weight: normal;
   margin-bottom: 10px;
 }
 
-.about-us_description {
+.about_us_description {
   text-align: center;
   font-size: 22px;
   line-height: 38px;

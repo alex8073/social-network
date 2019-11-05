@@ -1,11 +1,11 @@
 import React from 'react';
-import './Contacts.css';
+import classes from './Contacts.module.css';
 
 const Contacts = () => {
     return (
-        <div className="contacts">
+        <div className={classes.contacts}>
             Contacts
-      </div>
+        </div>
     )
 }
 

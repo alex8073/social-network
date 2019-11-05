@@ -1,11 +1,11 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header';
-import Welcome from './components/Welcome';
-import AboutUs from './components/AboutUs';
-import Technologies from './components/Technologies';
-import Learning from './components/Learning';
-import Contacts from './components/Contacts';
+import Header from './components/Header/Header';
+import Welcome from './components/Welcome/Welcome';
+import AboutUs from './components/AboutUs/AboutUs';
+import Technologies from './components/Technologies/Technologies';
+import Learning from './components/Learning/Learning';
+import Contacts from './components/Contacts/Contacts';
 
 const App = () => {
   return (
@@ -18,7 +18,7 @@ const App = () => {
       <Contacts />
     </div>
   );
-}
+};
 
 export default App;
 

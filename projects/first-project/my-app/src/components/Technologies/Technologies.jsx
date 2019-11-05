@@ -1,9 +1,9 @@
 import React from 'react';
-import './Technologies.css';
+import classes from './Technologies.module.css';
 
 const Technologies = () => {
     return (
-        <div className="Technologies">
+        <div className={classes.technologies}>
             Technologies
         </div>
     )
