@@ -40,5 +40,5 @@
 
 .navbar_list_item_link.active {
     color: lawngreen;
-    font-weight: bold;
+    /* font-weight: bold; */
 }
