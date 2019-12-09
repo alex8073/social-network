@@ -1,0 +1,17 @@
+.comments {
+    display              : grid;
+    grid-template-columns: 2fr 10fr;
+
+}
+
+.commentsItems {
+    padding: 10px;
+}
+
+.commentsItems .active {
+    color: goldenrod;
+}
+
+.messages {
+    padding: 10px;
+}

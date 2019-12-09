@@ -7,19 +7,22 @@ import Technologies from './components/Technologies/Technologies';
 import Learning from './components/Learning/Learning';
 import Contacts from './components/Contacts/Contacts';
 import Comments from './components/Comments/Comments';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const App = () => {
   return (
     <BrowserRouter>
       <div>
         <Header />
-        <Route path='/welcome' component={Welcome} />
-        <Route path='/aboutus' component={AboutUs} />
-        <Route path='/technologies' component={Technologies} />
-        <Route path='/learning' component={Learning} />
-        <Route path='/contacts' component={Contacts} />
-        <Route path='/comments' component={Comments} />
+        <Switch>
+          <Route path='/welcome' component={Welcome} />
+          <Route path='/aboutus' component={AboutUs} />
+          <Route path='/technologies' component={Technologies} />
+          <Route path='/learning' component={Learning} />
+          <Route path='/contacts' component={Contacts} />
+          <Route path='/comments' component={Comments} />
+          <Route path='*' component={Welcome} />
+        </Switch>
       </div>
     </BrowserRouter>
   );
