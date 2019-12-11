@@ -6,7 +6,7 @@ import AboutUs from './components/AboutUs/AboutUs';
 import Technologies from './components/Technologies/Technologies';
 import Learning from './components/Learning/Learning';
 import Contacts from './components/Contacts/Contacts';
-import Comments from './components/Comments/Comments';
+import Reviews from './components/Reviews/Reviews';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 const App = () => {
@@ -20,7 +20,7 @@ const App = () => {
           <Route path='/technologies' component={Technologies} />
           <Route path='/learning' component={Learning} />
           <Route path='/contacts' component={Contacts} />
-          <Route path='/comments' component={Comments} />
+          <Route path='/reviews' component={Reviews} />
           <Route path='*' component={Welcome} />
         </Switch>
       </div>

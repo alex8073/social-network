@@ -1,14 +1,14 @@
-.comments {
+.reviews {
     display              : grid;
     grid-template-columns: 2fr 10fr;
 
 }
 
-.commentsItems {
+.reviewsItems {
     padding: 10px;
 }
 
-.commentsItems .active {
+.reviewsItems .active {
     color: goldenrod;
 }
 

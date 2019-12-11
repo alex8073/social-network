@@ -8,10 +8,22 @@ const Welcome = () => {
                 <h1 className={classes.welcome_caption}>Кроссплатформенная разработка<br></br> для вашего бизнеса</h1>
 
                 <div className={classes.icons}>
-                    <div><img src="../../img/icon_android.svg" alt="" />IOS</div>
-                    <div><img src="../../img/jubFc599Rto.jpg" alt="" />Android</div>
-                    <div><img src="../../img/bg_main_2.jpg" alt="" />Windows</div>
-                    <div><img src="../../img/4icon.png" alt="" />Linux</div>
+                    <div>
+                        <img src={require("../../img/icon_apple.svg")} alt="" />
+                        <p>IOS</p>
+                    </div>
+                    <div>
+                        <img src={require("../../img/icon_android.svg")} alt="" />
+                        <p>Android</p>
+                    </div>
+                    <div>
+                        <img src={require("../../img/icon_windows.svg")} alt="" />
+                        <p>Windows</p>
+                    </div>
+                    <div>
+                        <img src={require("../../img/icon_linux.svg")} alt="" />
+                        <p>Linux</p>
+                    </div>
                 </div>
             </div>
         </div>
