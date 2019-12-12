@@ -27,29 +27,24 @@ const Reviews = (props) => {
     ]
 
     let messagesData = [
-        {id:1, message: 'Замечательно'},
-        {id:2, message: 'Здорово'},
-        {id:3, message: 'Отлично'},
+        { id: 1, message: 'Замечательно' },
+        { id: 2, message: 'Здорово' },
+        { id: 3, message: 'Отлично' },
     ]
 
-
+    let reviewsElements = reviewsData.map(r => <ReviewsItem name={r.name} id={r.id} />);
+    let messagesElements = messagesData.map(m => <Message message={m.message} />);
 
     return (
         <div className={classes.reviews}>
             <div className={classes.reviewsItems}>
-                <ReviewsItem name={reviewsData[0].name} id={reviewsData[0].id} />
-                <ReviewsItem name={reviewsData[1].name} id={reviewsData[1].id} />
-                <ReviewsItem name={reviewsData[2].name} id={reviewsData[2].id} />
-                <ReviewsItem name={reviewsData[3].name} id={reviewsData[3].id} />
-                <ReviewsItem name={reviewsData[4].name} id={reviewsData[4].id} />
+                {reviewsElements}
             </div>
             <div className={classes.messages}>
-                <Message message={messagesData[0].message} />
-                <Message message={messagesData[1].message} />
-                <Message message={messagesData[2].message} />
+                {messagesElements}
             </div>
         </div>
     )
 }
 
-export default Reviews;
+export default Reviews; 
