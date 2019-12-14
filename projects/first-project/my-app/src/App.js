@@ -9,7 +9,7 @@ import Contacts from './components/Contacts/Contacts';
 import Reviews from './components/Reviews/Reviews';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-const App = () => {
+const App = (props) => {
   return (
     <BrowserRouter>
       <div>
@@ -20,7 +20,7 @@ const App = () => {
           <Route path='/technologies' component={Technologies} />
           <Route path='/learning' component={Learning} />
           <Route path='/contacts' component={Contacts} />
-          <Route path='/reviews' component={Reviews} />
+          <Route path='/reviews' render={() => <Reviews messagesData={props.messagesData} reviewsData={props.reviewsData}/>} />
           <Route path='*' component={Welcome} />
         </Switch>
       </div>
