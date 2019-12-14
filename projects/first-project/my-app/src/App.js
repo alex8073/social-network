@@ -20,7 +20,7 @@ const App = (props) => {
           <Route path='/technologies' component={Technologies} />
           <Route path='/learning' component={Learning} />
           <Route path='/contacts' component={Contacts} />
-          <Route path='/reviews' render={() => <Reviews messagesData={props.messagesData} reviewsData={props.reviewsData}/>} />
+          <Route path='/reviews' render={() => <Reviews messagesData={props.state.reviewsPage.messagesData} reviewsData={props.state.reviewsPage.reviewsData} />} />
           <Route path='*' component={Welcome} />
         </Switch>
       </div>
