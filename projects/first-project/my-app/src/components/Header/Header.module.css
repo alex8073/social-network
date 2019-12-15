@@ -1,6 +1,8 @@
 .header {
     background-color: #fff;
+    box-sizing: border-box;
     border-bottom: 3px solid rgb(71, 243, 229);
+    height: 8.3vh;
 }
 
 .header_inner_wrapper {

@@ -17,7 +17,8 @@
 }
 
 .welcome_inner_wrapper {
-    height            : 91.5vh;
+    /* height            : 91.5vh; */
+    height            : 91.7vh;
     width             : 1140px;
     margin            : 0 auto;
     padding           : 0;
