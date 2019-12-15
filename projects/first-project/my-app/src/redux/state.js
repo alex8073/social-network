@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 let state = {
     reviewsPage: {
         reviewsData: [
@@ -15,14 +17,13 @@ let state = {
     }
 }
 
-export let addMessage = (textMessage) => {
+export let addMessage = (newText) => {
     let newMessage = {
         id: 4,
-        message: textMessage
+        message: newText
     };
     state.reviewsPage.messagesData.push(newMessage);
+    rerenderEntireTree(state);
 }
-
-
 
 export default state;

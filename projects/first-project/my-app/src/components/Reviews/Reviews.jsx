@@ -13,7 +13,7 @@ const Reviews = (props) => {
     let addMessage = () => {
         let text = newMessageElement.current.value;
         props.addMessage(text);
-        // alert(text);
+        newMessageElement.current.value = '';
     }
 
 
@@ -28,7 +28,7 @@ const Reviews = (props) => {
                     <textarea ref={newMessageElement} name="" id="" cols="30" rows="3"></textarea>
                 </div>
                 <div>
-                    <button onClick={addMessage}>Send message</button>
+                    <button onClick={addMessage}>Add message</button>
                 </div>
             </div>
         </div>
