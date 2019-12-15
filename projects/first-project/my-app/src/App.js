@@ -7,11 +7,10 @@ import Technologies from './components/Technologies/Technologies';
 import Learning from './components/Learning/Learning';
 import Contacts from './components/Contacts/Contacts';
 import Reviews from './components/Reviews/Reviews';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 
 const App = (props) => {
   return (
-    <BrowserRouter>
       <div>
         <Header />
         <Switch>
@@ -24,7 +23,6 @@ const App = (props) => {
           <Route path='*' component={Welcome} />
         </Switch>
       </div>
-    </BrowserRouter>
   );
 };
 
