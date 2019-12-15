@@ -15,4 +15,14 @@ let state = {
     }
 }
 
+export let addMessage = (textMessage) => {
+    let newMessage = {
+        id: 4,
+        message: textMessage
+    };
+    state.reviewsPage.messagesData.push(newMessage);
+}
+
+
+
 export default state;

@@ -10,9 +10,10 @@ const Reviews = (props) => {
 
     let newMessageElement = React.createRef();
 
-    let sendMessage = () => {
+    let addMessage = () => {
         let text = newMessageElement.current.value;
-        alert(text);
+        props.addMessage(text);
+        // alert(text);
     }
 
 
@@ -27,7 +28,7 @@ const Reviews = (props) => {
                     <textarea ref={newMessageElement} name="" id="" cols="30" rows="3"></textarea>
                 </div>
                 <div>
-                    <button onClick={sendMessage}>Send message</button>
+                    <button onClick={addMessage}>Send message</button>
                 </div>
             </div>
         </div>

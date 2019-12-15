@@ -11,18 +11,20 @@ import { Route, Switch } from 'react-router-dom';
 
 const App = (props) => {
   return (
-      <div>
-        <Header />
-        <Switch>
-          <Route path='/welcome' component={Welcome} />
-          <Route path='/aboutus' component={AboutUs} />
-          <Route path='/technologies' component={Technologies} />
-          <Route path='/learning' component={Learning} />
-          <Route path='/contacts' component={Contacts} />
-          <Route path='/reviews' render={() => <Reviews messagesData={props.state.reviewsPage.messagesData} reviewsData={props.state.reviewsPage.reviewsData} />} />
-          <Route path='*' component={Welcome} />
-        </Switch>
-      </div>
+    <div>
+      <Header />
+      <Switch>
+        <Route path='/welcome' component={Welcome} />
+        <Route path='/aboutus' component={AboutUs} />
+        <Route path='/technologies' component={Technologies} />
+        <Route path='/learning' component={Learning} />
+        <Route path='/contacts' component={Contacts} />
+        <Route path='/reviews' render={() => <Reviews messagesData={props.state.reviewsPage.messagesData}
+                                                      reviewsData={props.state.reviewsPage.reviewsData}
+                                                      addMessage={props.addMessage} />} />
+        <Route path='*' component={Welcome} />
+      </Switch>
+    </div>
   );
 };
 
