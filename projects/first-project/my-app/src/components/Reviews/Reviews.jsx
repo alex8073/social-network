@@ -11,9 +11,13 @@ const Reviews = (props) => {
     let newMessageElement = React.createRef();
 
     let addMessage = () => {
+        props.addMessage();
+    }
+
+    let onMessageChange = () => {
         let text = newMessageElement.current.value;
-        props.addMessage(text);
-        newMessageElement.current.value = '';
+        props.updateNewMessageText(text);
+        console.log(text);
     }
 
 
@@ -25,7 +29,9 @@ const Reviews = (props) => {
             <div className={classes.messages}>
                 {messagesElements}
                 <div>
-                    <textarea ref={newMessageElement} name="" id="" cols="30" rows="3"></textarea>
+                    <textarea   onChange={onMessageChange} 
+                                ref={newMessageElement} 
+                                value={props.newMessageText}/>
                 </div>
                 <div>
                     <button onClick={addMessage}>Add message</button>

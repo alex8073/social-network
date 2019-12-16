@@ -21,7 +21,9 @@ const App = (props) => {
         <Route path='/contacts' component={Contacts} />
         <Route path='/reviews' render={() => <Reviews messagesData={props.state.reviewsPage.messagesData}
                                                       reviewsData={props.state.reviewsPage.reviewsData}
-                                                      addMessage={props.addMessage} />} />
+                                                      newMessageText={props.state.reviewsPage.newMessageText}
+                                                      addMessage={props.addMessage} 
+                                                      updateNewMessageText={props.updateNewMessageText} />} />
         <Route path='*' component={Welcome} />
       </Switch>
     </div>

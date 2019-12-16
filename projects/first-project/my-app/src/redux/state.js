@@ -13,16 +13,25 @@ let state = {
             { id: 1, message: 'Замечательно' },
             { id: 2, message: 'Здорово' },
             { id: 3, message: 'Отлично' },
-        ]
+        ],
+        newMessageText: 'Senticode.by'
     }
 }
 
-export let addMessage = (newText) => {
+window.state = state;
+
+export let addMessage = () => {
     let newMessage = {
         id: 4,
-        message: newText
+        message: state.reviewsPage.newMessageText
     };
     state.reviewsPage.messagesData.push(newMessage);
+    state.reviewsPage.newMessageText = '';
+    rerenderEntireTree(state);
+}
+
+export let updateNewMessageText = (newText) => {
+    state.reviewsPage.newMessageText = newText;
     rerenderEntireTree(state);
 }
 
