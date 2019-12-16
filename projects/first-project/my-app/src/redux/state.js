@@ -1,4 +1,4 @@
-import { rerenderEntireTree } from "../render";
+let rerenderEntireTree = () => {}
 
 let state = {
     reviewsPage: {
@@ -20,7 +20,7 @@ let state = {
 
 window.state = state;
 
-export let addMessage = () => {
+export const addMessage = () => {
     let newMessage = {
         id: 4,
         message: state.reviewsPage.newMessageText
@@ -30,9 +30,13 @@ export let addMessage = () => {
     rerenderEntireTree(state);
 }
 
-export let updateNewMessageText = (newText) => {
+export const updateNewMessageText = (newText) => {
     state.reviewsPage.newMessageText = newText;
     rerenderEntireTree(state);
+}
+
+export const subscribe = (observer) => {
+    rerenderEntireTree = observer;
 }
 
 export default state;
