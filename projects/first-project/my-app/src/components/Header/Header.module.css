@@ -2,7 +2,7 @@
     background-color: #fff;
     box-sizing: border-box;
     border-bottom: 3px solid rgb(71, 243, 229);
-    height: 8.3vh;
+    height: 80px;
 }
 
 .header_inner_wrapper {
@@ -17,7 +17,6 @@
     min-width: 59%;
     max-width: 60%;
 }
-
 .navbar_list {
     display: flex;
     list-style: none;
@@ -31,11 +30,8 @@
     font-size: 22px;
     text-decoration: none;
     white-space: nowrap;
-    /* font-weight: bold; */
 }
 
 .navbar_list_item_link.active {
-    /* color: #fff; */
     color: rgb(71, 243, 229);
-    /* background-color: rgb(71, 243, 229); */
 }

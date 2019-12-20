@@ -5,9 +5,9 @@ const Welcome = () => {
     return (
         <div className={classes.welcome}>
             <div className={classes.welcome_inner_wrapper}>
-                <h1 className={classes.welcome_caption}>Кроссплатформенная разработка<br></br> для вашего бизнеса</h1>
+                <h1 className={classes.welcome_caption}>Кроссплатформенная разработка<br></br> <span>Быстрые, надежные, расширяемые системы</span></h1>
 
-                <div className={classes.icons}>
+                <div className={classes.welcome_icons}>
                     <div>
                         <img src={require("../../img/icon_apple.svg")} alt="" />
                         <p>IOS</p>
