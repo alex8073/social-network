@@ -1,3 +1,7 @@
+const ADD_MESSAGE = 'ADD-MESSAGE';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+
+
 let store = {
     _state: {
         reviewsPage: {
@@ -28,7 +32,7 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD-MESSAGE') {
+        if (action.type === ADD_MESSAGE) {
             let newMessage = {
                 id: 4,
                 message: this._state.reviewsPage.newMessageText
@@ -36,13 +40,18 @@ let store = {
             this._state.reviewsPage.messagesData.push(newMessage);
             this._state.reviewsPage.newMessageText = '';
             this._callSubscriber(this._state);
-        } else if (action.type === 'UPDATE-NEW-MESSAGE-TEXT') {
+        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
             this._state.reviewsPage.newMessageText = action.newText;
             this._callSubscriber(this._state);
         }
     }
 
 }
+
+export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
+
+export const updateNewMessageTextActionCreator = (text) =>
+    ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: text });
 
 export default store;
 window.store = store;

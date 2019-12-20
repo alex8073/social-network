@@ -1,7 +1,10 @@
 import React from 'react';
+import Message from './Message/Message';
 import classes from './Reviews.module.css';
 import ReviewsItem from './ReviewsItem/ReviewsItem';
-import Message from './Message/Message';
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/state';
+
+
 
 const Reviews = (props) => {
 
@@ -12,13 +15,14 @@ const Reviews = (props) => {
 
     let addMessage = () => {
         // props.addMessage();
-        props.dispatch({ type: 'ADD-MESSAGE' });
+        props.dispatch(addMessageActionCreator());
     }
 
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
         // props.updateNewMessageText(text);
-        let action = { type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text };
+        // let action = { type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text };
+        let action = updateNewMessageTextActionCreator(text);
         props.dispatch(action);
         console.log(text);
     }
