@@ -1,6 +1,6 @@
 import React from 'react';
-import Message from './Message/Message';
 import classes from './Reviews.module.css';
+import Message from './Message/Message';
 import ReviewsItem from './ReviewsItem/ReviewsItem';
 import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/state';
 

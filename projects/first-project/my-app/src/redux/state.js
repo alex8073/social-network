@@ -1,6 +1,9 @@
 const ADD_MESSAGE = 'ADD-MESSAGE';
 const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
 
+const UPDATE_NEW_POST_BODY = 'UPDATE-NEW-POST-BODY';
+const ADD_POST = 'ADD-POST';
+
 
 let store = {
     _state: {
@@ -18,6 +21,14 @@ let store = {
                 { id: 3, message: 'Отлично' },
             ],
             newMessageText: 'Senticode.by'
+        },
+        testPagePage: {
+            posts: [
+                { id: 1, message: 'первое сообщение' },
+                { id: 2, message: 'второе сообщение' },
+                { id: 3, message: 'третье сообщение' }
+            ],
+            newPostBody: ''
         }
     },
     _callSubscriber() {
@@ -43,6 +54,14 @@ let store = {
         } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
             this._state.reviewsPage.newMessageText = action.newText;
             this._callSubscriber(this._state);
+        } else if (action.type === UPDATE_NEW_POST_BODY) {
+            this._state.testPagePage.newPostBody = action.body;
+            this._callSubscriber(this._state);
+        } else if (action.type === ADD_POST) {
+            let body = this._state.testPagePage.newPostBody;
+            this._state.testPagePage.posts.push({ id: 4, message: body });
+            this._state.testPagePage.newPostBody = '';
+            this._callSubscriber(this._state);
         }
     }
 
@@ -52,6 +71,18 @@ export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
 
 export const updateNewMessageTextActionCreator = (text) =>
     ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: text });
+
+
+export const addPostCreator = () => ({ type: ADD_POST });
+
+export const updateNewPostBodyCreator = (body) =>
+    ({ type: UPDATE_NEW_POST_BODY, body: body });
+
+
+
+
+
+
 
 export default store;
 window.store = store;

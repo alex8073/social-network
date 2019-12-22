@@ -1,0 +1,8 @@
+.testPageItems a {
+    text-decoration: none;
+}
+
+.testPage_inner_wrapper {
+    width: 1140px;
+    margin: 0 auto;
+}

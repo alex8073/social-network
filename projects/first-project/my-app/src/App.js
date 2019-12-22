@@ -7,6 +7,7 @@ import Technologies from './components/Technologies/Technologies';
 import Learning from './components/Learning/Learning';
 import Contacts from './components/Contacts/Contacts';
 import Reviews from './components/Reviews/Reviews';
+import TestPage from './components/TestPage/TestPage';
 import { Route, Switch } from 'react-router-dom';
 
 const App = (props) => {
@@ -23,6 +24,7 @@ const App = (props) => {
                                                       reviewsData={props.state.reviewsPage.reviewsData}
                                                       newMessageText={props.state.reviewsPage.newMessageText}
                                                       dispatch={props.dispatch}/>} />
+        <Route path='/testpage' render={() => <TestPage store={props.store}/>} />                                              
         <Route path='*' component={Welcome} />
       </Switch>
     </div>
