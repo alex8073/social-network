@@ -1,34 +1,35 @@
-const ADD_MESSAGE = 'ADD-MESSAGE';
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const UPDATE_NEW_REVIEW_BODY = 'UPDATE-NEW-REVIEW-BODY';
+const ADD_REVIEW = 'ADD-REVIEW';
 
-const UPDATE_NEW_POST_BODY = 'UPDATE-NEW-POST-BODY';
-const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
+const SEND_MESSAGE = 'SEND-MESSAGE';
+
 
 
 let store = {
     _state: {
         reviewsPage: {
-            reviewsData: [
+            reviews: [
+                { id: 1, message: 'первое сообщение' },
+                { id: 2, message: 'второе сообщение' },
+                { id: 3, message: 'третье сообщение' }
+            ],
+            newReviewBody: ''
+        },
+        testDialogsPage: {
+            dialogs: [
                 { id: 1, name: 'Вася' },
                 { id: 2, name: 'Петя' },
                 { id: 3, name: 'Дима' },
                 { id: 4, name: 'Вера' },
                 { id: 5, name: 'Валя' },
             ],
-            messagesData: [
+            messages: [
                 { id: 1, message: 'Замечательно' },
                 { id: 2, message: 'Здорово' },
                 { id: 3, message: 'Отлично' },
             ],
             newMessageText: 'Senticode.by'
-        },
-        testPagePage: {
-            posts: [
-                { id: 1, message: 'первое сообщение' },
-                { id: 2, message: 'второе сообщение' },
-                { id: 3, message: 'третье сообщение' }
-            ],
-            newPostBody: ''
         }
     },
     _callSubscriber() {
@@ -43,46 +44,39 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === ADD_MESSAGE) {
-            let newMessage = {
+        if (action.type === UPDATE_NEW_REVIEW_BODY) {
+            this._state.reviewsPage.newReviewBody = action.body;
+            this._callSubscriber(this._state);
+        } else if (action.type === ADD_REVIEW) {
+            let newReview = {
                 id: 4,
-                message: this._state.reviewsPage.newMessageText
+                message: this._state.reviewsPage.newReviewBody
             };
-            this._state.reviewsPage.messagesData.push(newMessage);
-            this._state.reviewsPage.newMessageText = '';
+            this._state.reviewsPage.reviews.push(newReview);
+            this._state.reviewsPage.newReviewBody = '';
             this._callSubscriber(this._state);
         } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.reviewsPage.newMessageText = action.newText;
+            this._state.testDialogsPage.newMessageText = action.newText;
             this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_POST_BODY) {
-            this._state.testPagePage.newPostBody = action.body;
-            this._callSubscriber(this._state);
-        } else if (action.type === ADD_POST) {
-            let body = this._state.testPagePage.newPostBody;
-            this._state.testPagePage.posts.push({ id: 4, message: body });
-            this._state.testPagePage.newPostBody = '';
+        }  else if (action.type === SEND_MESSAGE) {
+            let newText = this._state.testDialogsPage.newMessageText;
+            this._state.testDialogsPage.messages.push({ id: 4, message: newText });
+            this._state.testDialogsPage.newMessageText = '';
             this._callSubscriber(this._state);
         }
     }
 
 }
+export const updateNewReviewBodyCreator = (body) =>
+    ({ type: UPDATE_NEW_REVIEW_BODY, body: body });
 
-export const addMessageActionCreator = () => ({ type: ADD_MESSAGE });
-
-export const updateNewMessageTextActionCreator = (text) =>
-    ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: text });
-
-
-export const addPostCreator = () => ({ type: ADD_POST });
-
-export const updateNewPostBodyCreator = (body) =>
-    ({ type: UPDATE_NEW_POST_BODY, body: body });
+    export const addReviewCreator = () => ({ type: ADD_REVIEW });
 
 
+    export const updateNewMessageTextCreator = (newText) =>
+        ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: newText });
 
-
-
-
+export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
 
 export default store;
 window.store = store;

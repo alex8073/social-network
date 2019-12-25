@@ -1,47 +1,34 @@
 import React from 'react';
 import classes from './Reviews.module.css';
-import Message from './Message/Message';
-import ReviewsItem from './ReviewsItem/ReviewsItem';
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from '../../redux/state';
-
-
+import DialogsItem from '../TestDialogs/DialogsItem/DialogsItem';
+import { addReviewCreator, updateNewReviewBodyCreator } from '../../redux/state';
 
 const Reviews = (props) => {
+    let postsElements = props.reviews.map(p => <DialogsItem name={p.message} id={p.id} />);
 
-    let reviewsElements = props.reviewsData.map(r => <ReviewsItem name={r.name} id={r.id} />);
-    let messagesElements = props.messagesData.map(m => <Message message={m.message} />);
-
-    let newMessageElement = React.createRef();
-
-    let addMessage = () => {
-        // props.addMessage();
-        props.dispatch(addMessageActionCreator());
+    let onAddReviewClick = () => {
+        props.dispatch(addReviewCreator());
     }
 
-    let onMessageChange = () => {
-        let text = newMessageElement.current.value;
-        // props.updateNewMessageText(text);
-        // let action = { type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text };
-        let action = updateNewMessageTextActionCreator(text);
-        props.dispatch(action);
-        console.log(text);
+    let onPostBodyChange = (e) => {
+        let body = e.target.value;
+        props.dispatch(updateNewReviewBodyCreator(body));
+        console.log(body);
     }
-
 
     return (
         <div className={classes.reviews}>
-            <div className={classes.reviewsItems}>
-                {reviewsElements}
-            </div>
-            <div className={classes.messages}>
-                {messagesElements}
-                <div>
-                    <textarea onChange={onMessageChange}
-                        ref={newMessageElement}
-                        value={props.newMessageText} />
+            <div className={classes.reviews_inner_wrapper}>
+                <div className={classes.reviewsItems}>
+                    {postsElements}
                 </div>
                 <div>
-                    <button onClick={addMessage}>Add message</button>
+                    <textarea onChange={onPostBodyChange}
+                        value={props.newReviewBody}
+                        placeholder='Please, enter your message.' />
+                </div>
+                <div>
+                    <button onClick={onAddReviewClick}>Send message</button>
                 </div>
             </div>
         </div>

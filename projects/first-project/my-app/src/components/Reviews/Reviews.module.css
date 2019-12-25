@@ -1,17 +1,11 @@
-.reviews {
-    display              : grid;
-    grid-template-columns: 2fr 10fr;
-
+.reviews a {
+    text-decoration: none;
 }
 
+.reviews_inner_wrapper {
+    width: 1140px;
+    margin: 0 auto;
+}
 .reviewsItems {
-    padding: 10px;
-}
-
-.reviewsItems .active {
-    color: goldenrod;
-}
-
-.messages {
     padding: 10px;
 }

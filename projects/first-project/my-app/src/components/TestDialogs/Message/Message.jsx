@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './../Reviews.module.css';
+import classes from './../TestDialogs.module.css';
 
 const Message = (props) => {
     return (
