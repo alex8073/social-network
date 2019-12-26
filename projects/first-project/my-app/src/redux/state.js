@@ -1,10 +1,5 @@
-const UPDATE_NEW_REVIEW_BODY = 'UPDATE-NEW-REVIEW-BODY';
-const ADD_REVIEW = 'ADD-REVIEW';
-
-const UPDATE_NEW_MESSAGE_TEXT = 'UPDATE-NEW-MESSAGE-TEXT';
-const SEND_MESSAGE = 'SEND-MESSAGE';
-
-
+import reviewsReducer from './reviewsReducer';
+import testDialogsReduser from './testDialogsReduser';
 
 let store = {
     _state: {
@@ -44,39 +39,12 @@ let store = {
     },
 
     dispatch(action) {
-        if (action.type === UPDATE_NEW_REVIEW_BODY) {
-            this._state.reviewsPage.newReviewBody = action.body;
-            this._callSubscriber(this._state);
-        } else if (action.type === ADD_REVIEW) {
-            let newReview = {
-                id: 4,
-                message: this._state.reviewsPage.newReviewBody
-            };
-            this._state.reviewsPage.reviews.push(newReview);
-            this._state.reviewsPage.newReviewBody = '';
-            this._callSubscriber(this._state);
-        } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-            this._state.testDialogsPage.newMessageText = action.newText;
-            this._callSubscriber(this._state);
-        }  else if (action.type === SEND_MESSAGE) {
-            let newText = this._state.testDialogsPage.newMessageText;
-            this._state.testDialogsPage.messages.push({ id: 4, message: newText });
-            this._state.testDialogsPage.newMessageText = '';
-            this._callSubscriber(this._state);
-        }
+        this._state.reviewsPage = reviewsReducer(this._state.reviewsPage, action);
+        this._state.testDialogsPage = testDialogsReduser(this._state.testDialogsPage, action);
+        this._callSubscriber(this._state);
     }
 
 }
-export const updateNewReviewBodyCreator = (body) =>
-    ({ type: UPDATE_NEW_REVIEW_BODY, body: body });
-
-    export const addReviewCreator = () => ({ type: ADD_REVIEW });
-
-
-    export const updateNewMessageTextCreator = (newText) =>
-        ({ type: UPDATE_NEW_MESSAGE_TEXT, newText: newText });
-
-export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
 
 export default store;
 window.store = store;

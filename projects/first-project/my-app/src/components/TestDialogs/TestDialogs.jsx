@@ -2,7 +2,7 @@ import React from 'react';
 import classes from './TestDialogs.module.css';
 import DialogsItem from './DialogsItem/DialogsItem';
 import Message from './Message/Message';
-import { sendMessageCreator, updateNewMessageTextCreator } from '../../redux/state';
+import { sendMessageCreator, updateNewMessageTextCreator } from '../../redux/testDialogsReduser';
 
 const TestDialogs = (props) => {
     let dialogsElements = props.store.getState().testDialogsPage.dialogs.map(d => <DialogsItem name={d.name} id={d.id} />);
@@ -10,16 +10,16 @@ const TestDialogs = (props) => {
 
     let newMessageElement = React.createRef();
 
-    let sendMessage = () => {
-        props.store.dispatch(sendMessageCreator());
-    }
-
     let onMessageChange = () => {
         let text = newMessageElement.current.value;
         // let action = { type: 'UPDATE-NEW-MESSAGE-TEXT', newText: text };
         let action = updateNewMessageTextCreator(text);
         props.store.dispatch(action);
         console.log(text);
+    }
+
+    let sendMessage = () => {
+        props.store.dispatch(sendMessageCreator());
     }
 
     return (

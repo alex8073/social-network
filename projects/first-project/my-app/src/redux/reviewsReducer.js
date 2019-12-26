@@ -1,28 +1,27 @@
+const UPDATE_NEW_REVIEW_BODY = 'UPDATE-NEW-REVIEW-BODY';
+const ADD_REVIEW = 'ADD-REVIEW';
+
 const reviewsReducer = (state, action) => {
-    if (action.type === ADD_MESSAGE) {
-        let newMessage = {
-            id: 4,
-            message: this._state.reviewsPage.newMessageText
-        };
-        this._state.reviewsPage.messagesData.push(newMessage);
-        this._state.reviewsPage.newMessageText = '';
-        this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_MESSAGE_TEXT) {
-        this._state.reviewsPage.newMessageText = action.newText;
-        this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_POST_BODY) {
-        this._state.testPagePage.newPostBody = action.body;
-        this._callSubscriber(this._state);
-    } else if (action.type === ADD_POST) {
-        let body = this._state.testPagePage.newPostBody;
-        this._state.testPagePage.posts.push({
-            id: 4,
-            message: body
-        });
-        this._state.testPagePage.newPostBody = '';
-        this._callSubscriber(this._state);
+    switch (action.type) {
+        case UPDATE_NEW_REVIEW_BODY:
+            state.newReviewBody = action.body;
+            return state;
+        case ADD_REVIEW:
+            let newReview = {
+                id: 4,
+                message: state.newReviewBody
+            };
+            state.reviews.push(newReview);
+            state.newReviewBody = '';
+            return state;
+        default:
+            return state;
     }
-
-
-    return state;
 }
+
+export const updateNewReviewBodyCreator = (body) =>
+    ({ type: UPDATE_NEW_REVIEW_BODY, body: body });
+
+export const addReviewCreator = () => ({ type: ADD_REVIEW });
+
+export default reviewsReducer;

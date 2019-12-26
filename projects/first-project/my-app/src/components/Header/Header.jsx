@@ -16,7 +16,7 @@ const Header = () => {
                         <li className={classes.navbar_list_item}><NavLink className={classes.navbar_list_item_link} activeClassName={classes.active} to="/learning">Обучение</NavLink></li>
                         <li className={classes.navbar_list_item}><NavLink className={classes.navbar_list_item_link} activeClassName={classes.active} to="/contacts">Контакты</NavLink></li>
                         <li className={classes.navbar_list_item}><NavLink className={classes.navbar_list_item_link} activeClassName={classes.active} to="/reviews">Отзывы</NavLink></li>
-                        <li className={classes.navbar_list_item}><NavLink className={classes.navbar_list_item_link} activeClassName={classes.active} to="/testdialogs">TestPage</NavLink></li>
+                        <li className={classes.navbar_list_item}><NavLink className={classes.navbar_list_item_link} activeClassName={classes.active} to="/testdialogs">TestDialogs</NavLink></li>
                     </ul>
                 </nav>
             </div>
