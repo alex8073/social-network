@@ -1,19 +1,17 @@
 import React from 'react';
 import classes from './Reviews.module.css';
 import DialogsItem from '../TestDialogs/DialogsItem/DialogsItem';
-import { addReviewCreator, updateNewReviewBodyCreator } from '../../redux/reviewsReducer';
 
 const Reviews = (props) => {
     let postsElements = props.reviews.map(p => <DialogsItem name={p.message} id={p.id} />);
 
     let onPostBodyChange = (e) => {
         let body = e.target.value;
-        props.dispatch(updateNewReviewBodyCreator(body));
-        console.log(body);
+        props.updateNewReviewBody(body);
     }
 
     let onAddReviewClick = () => {
-        props.dispatch(addReviewCreator());
+        props.addReview();
     }
 
     return (
@@ -28,7 +26,7 @@ const Reviews = (props) => {
                         placeholder='Please, enter your message.' />
                 </div>
                 <div>
-                    <button onClick={onAddReviewClick}>Send message</button>
+                    <button onClick={onAddReviewClick}>Add review</button>
                 </div>
             </div>
         </div>
