@@ -19,8 +19,10 @@ const App = (props) => {
         <Route path='/technologies' component={Technologies} />
         <Route path='/learning' component={Learning} />
         <Route path='/contacts' component={Contacts} />
-        <Route path='/reviews' render={() => <ReviewsContainer store={props.store}/>} />
-        <Route path='/testdialogs' render={() => <TestDialogsContainer store={props.store}/>} />
+        {/*<Route path='/reviews' render={() => <ReviewsContainer store={props.store}/>} />*/}
+        <Route path='/reviews' render={() => <ReviewsContainer />} />
+        {/*<Route path='/testdialogs' render={() => <TestDialogsContainer store={props.store}/>} />*/}
+        <Route path='/testdialogs' render={() => <TestDialogsContainer />} />
         <Route path='/' component={Welcome} />
       </Switch>
     </div>
