@@ -1,44 +1,25 @@
 import React from 'react';
 import {addReviewCreator, updateNewReviewBodyCreator} from '../../redux/reviewsReducer';
 import Reviews from "./Reviews";
-import StoreContext from "../../StoreContext";
+import {connect} from "react-redux";
 
-const ReviewsContainer = (props) => {
-
-    // let state = props.store.getState();
-
-    // let onPostBodyChange = (body) => {
-    //     let action = updateNewReviewBodyCreator(body);
-    //     props.store.dispatch(action);
-    // };
-    //
-    // let onAddReviewClick = () => {
-    //     props.store.dispatch(addReviewCreator());
-    // };
-
-    return (
-        <StoreContext.Consumer>
-            {store => {
-
-                let state = store.getState();
-
-                let onPostBodyChange = (body) => {
-                    let action = updateNewReviewBodyCreator(body);
-                    store.dispatch(action);
-                };
-
-                let onAddReviewClick = () => {
-                    store.dispatch(addReviewCreator());
-                };
-
-                return <Reviews updateNewReviewBody={onPostBodyChange}
-                                addReview={onAddReviewClick}
-                                reviews={state.reviewsPage.reviews}
-                                newReviewBody={state.reviewsPage.newReviewBody}/>
-            }
-            }
-        </StoreContext.Consumer>
-    )
+let mapStateToProps = (state) => {
+    return {
+        reviewsPage: state.reviewsPage
+    }
 };
+
+let mapDispatchToProps = (dispatch) => {
+    return {
+        updateNewReviewBody: (body) => {
+            dispatch(updateNewReviewBodyCreator(body))
+        },
+        addReview: () => {
+            dispatch(addReviewCreator())
+        }
+    }
+};
+
+const ReviewsContainer = connect(mapStateToProps, mapDispatchToProps)(Reviews);
 
 export default ReviewsContainer;

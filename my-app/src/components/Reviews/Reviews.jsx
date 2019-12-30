@@ -3,7 +3,7 @@ import classes from './Reviews.module.css';
 import DialogsItem from '../TestDialogs/DialogsItem/DialogsItem';
 
 const Reviews = (props) => {
-    let postsElements = props.reviews.map(p => <DialogsItem name={p.message} id={p.id} />);
+    let postsElements = props.reviewsPage.reviews.map(p => <DialogsItem name={p.message} id={p.id} />);
 
     let onPostBodyChange = (e) => {
         let body = e.target.value;
@@ -22,7 +22,7 @@ const Reviews = (props) => {
                 </div>
                 <div>
                     <textarea onChange={onPostBodyChange}
-                        value={props.newReviewBody}
+                        value={props.reviewsPage.newReviewBody}
                         placeholder='Please, enter your message.' />
                 </div>
                 <div>
