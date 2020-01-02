@@ -3,7 +3,7 @@ import classes from './Reviews.module.css';
 import DialogsItem from '../TestDialogs/DialogsItem/DialogsItem';
 
 const Reviews = (props) => {
-    let postsElements = props.reviewsPage.reviews.map(p => <DialogsItem name={p.message} id={p.id} />);
+    let postsElements = props.reviewsPage.reviews.map(p => <DialogsItem name={p.message} key={p.id} id={p.id} />);
 
     let onPostBodyChange = (e) => {
         let body = e.target.value;

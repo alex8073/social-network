@@ -12,22 +12,18 @@ let initialState = {
 
 const reviewsReducer = (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_NEW_REVIEW_BODY: {
-            let stateCopy = {...state};
-            stateCopy.newReviewBody = action.body;
-            return stateCopy;
-        }
-        case ADD_REVIEW: {
-            let newReview = {
-                id: 4,
-                message: state.newReviewBody
+        case UPDATE_NEW_REVIEW_BODY:
+            return {
+                ...state,
+                newReviewBody: action.body
             };
-            let stateCopy = {...state};
-            stateCopy.reviews = [...state.reviews];
-            stateCopy.reviews.push(newReview);
-            stateCopy.newReviewBody = '';
-            return stateCopy;
-        }
+        case ADD_REVIEW:
+            return {
+                ...state,
+                newReviewBody: '',
+                reviews: [...state.reviews, {id: 4, message: state.newReviewBody}],
+
+            };
         default:
             return state;
     }
