@@ -1,9 +1,9 @@
 import React from 'react';
-import classes from './Contacts.module.css';
+import styles from './Contacts.module.css';
 
 const Contacts = () => {
     return (
-        <div className={classes.contacts}>
+        <div className={styles.contacts}>
             Contacts
         </div>
     )

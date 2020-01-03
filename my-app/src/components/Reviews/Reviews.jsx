@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './Reviews.module.css';
+import styles from './Reviews.module.css';
 import DialogsItem from '../TestDialogs/DialogsItem/DialogsItem';
 
 const Reviews = (props) => {
@@ -8,16 +8,16 @@ const Reviews = (props) => {
     let onPostBodyChange = (e) => {
         let body = e.target.value;
         props.updateNewReviewBody(body);
-    }
+    };
 
     let onAddReviewClick = () => {
         props.addReview();
-    }
+    };
 
     return (
-        <div className={classes.reviews}>
-            <div className={classes.reviews_inner_wrapper}>
-                <div className={classes.reviewsItems}>
+        <div className={styles.reviews}>
+            <div className={styles.reviews_inner_wrapper}>
+                <div className={styles.reviewsItems}>
                     {postsElements}
                 </div>
                 <div>
@@ -31,6 +31,6 @@ const Reviews = (props) => {
             </div>
         </div>
     )
-}
+};
 
 export default Reviews; 

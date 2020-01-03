@@ -1,5 +1,5 @@
 import React from 'react';
-import classes from './TestDialogs.module.css';
+import styles from './TestDialogs.module.css';
 import DialogsItem from './DialogsItem/DialogsItem';
 import Message from './Message/Message';
 
@@ -10,18 +10,18 @@ const TestDialogs = (props) => {
     let onMessageChange = (e) => {
         let text = e.target.value;
         props.updateNewMessageText(text);
-    }
+    };
 
     let onSendMessage = () => {
         props.sendMessage();
-    }
+    };
 
     return (
-        <div className={classes.testDialogs}>
-            <div className={classes.testDialogsItems}>
+        <div className={styles.testDialogs}>
+            <div className={styles.testDialogsItems}>
                 {dialogsElements}
             </div>
-            <div className={classes.messages}>
+            <div className={styles.messages}>
                 {messagesElements}
                 <div>
                     <textarea onChange={onMessageChange}
@@ -33,6 +33,6 @@ const TestDialogs = (props) => {
             </div>
         </div>
     )
-}
+};
 
 export default TestDialogs;

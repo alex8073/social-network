@@ -1,0 +1,16 @@
+.wrapper {
+    margin: 0 auto;
+    width: 1140px;
+}
+
+.innerWrapper {
+    display: flex;
+}
+
+.caption img.userPhoto {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+
+}
+

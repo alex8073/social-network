@@ -1,13 +1,13 @@
 import React from 'react';
-import classes from './Welcome.module.css';
+import styles from './Welcome.module.css';
 
 const Welcome = () => {
     return (
-        <div className={classes.welcome}>
-            <div className={classes.welcome_inner_wrapper}>
-                <h1 className={classes.welcome_caption}>Кроссплатформенная разработка<br></br> <span>Быстрые, надежные, расширяемые системы</span></h1>
+        <div className={styles.welcome}>
+            <div className={styles.welcome_inner_wrapper}>
+                <h1 className={styles.welcome_caption}>Кроссплатформенная разработка<br></br> <span>Быстрые, надежные, расширяемые системы</span></h1>
 
-                <div className={classes.welcome_icons}>
+                <div className={styles.welcome_icons}>
                     <div>
                         <img src={require("../../img/icon_apple.svg")} alt="" />
                         <p>IOS</p>
