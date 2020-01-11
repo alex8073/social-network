@@ -1,9 +1,10 @@
 import React from 'react';
 import styles from './Reviews.module.css';
-import DialogsItem from '../TestDialogs/DialogsItem/DialogsItem';
+import DialogsItem from '../../TestDialogs/DialogsItem/DialogsItem';
 
 const Reviews = (props) => {
-    let postsElements = props.reviewsPage.reviews.map(p => <DialogsItem name={p.message} key={p.id} id={p.id} />);
+
+    let postsElements = props.profilePage.reviews.map(p => <DialogsItem name={p.message} key={p.id} id={p.id} />);
 
     let onPostBodyChange = (e) => {
         let body = e.target.value;
@@ -22,7 +23,7 @@ const Reviews = (props) => {
                 </div>
                 <div>
                     <textarea onChange={onPostBodyChange}
-                        value={props.reviewsPage.newReviewBody}
+                        value={props.profilePage.newReviewBody}
                         placeholder='Please, enter your message.' />
                 </div>
                 <div>

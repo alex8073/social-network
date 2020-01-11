@@ -7,9 +7,9 @@ import Technologies from './components/Technologies/Technologies';
 import Learning from './components/Learning/Learning';
 import Contacts from './components/Contacts/Contacts';
 import {Route, Switch} from 'react-router-dom';
-import ReviewsContainer from "./components/Reviews/ReviewsContainer";
 import TestDialogsContainer from "./components/TestDialogs/TestDialogsContainer";
 import UsersContainer from "./components/TestUsers/UsersContainer";
+import ProfileContainer from "./components/Profile/ProfileContainer";
 
 const App = () => {
     return (
@@ -20,7 +20,7 @@ const App = () => {
                 <Route path='/technologies' component={Technologies}/>
                 <Route path='/learning' component={Learning}/>
                 <Route path='/contacts' component={Contacts}/>
-                <Route path='/reviews' render={() => <ReviewsContainer/>}/>
+                <Route path='/profile' render={() => <ProfileContainer/>}/>
                 <Route path='/testdialogs' render={() => <TestDialogsContainer/>}/>
                 <Route path='/testusers' render={() => <UsersContainer />}/>
                 <Route path='/' component={Welcome}/>

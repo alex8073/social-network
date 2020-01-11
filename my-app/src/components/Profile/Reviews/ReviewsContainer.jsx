@@ -1,11 +1,11 @@
 import React from 'react';
-import {addReviewCreator, updateNewReviewBodyCreator} from '../../redux/reviewsReducer';
+import {addReviewCreator, updateNewReviewBodyCreator} from '../../../redux/profileReducer';
 import Reviews from "./Reviews";
 import {connect} from "react-redux";
 
 let mapStateToProps = (state) => {
     return {
-        reviewsPage: state.reviewsPage
+        profilePage: state.profilePage
     }
 };
 
