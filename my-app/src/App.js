@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Header from './components/Header/Header';
 import Welcome from './components/Welcome/Welcome';
 import AboutUs from './components/AboutUs/AboutUs';
 import Technologies from './components/Technologies/Technologies';
@@ -10,11 +9,12 @@ import {Route, Switch} from 'react-router-dom';
 import TestDialogsContainer from "./components/TestDialogs/TestDialogsContainer";
 import UsersContainer from "./components/TestUsers/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
+import HeaderContainer from "./components/Header/HeaderContainer";
 
 const App = () => {
     return (
         <div>
-            <Header/>
+            <HeaderContainer/>
             <Switch>
                 <Route path='/aboutus' component={AboutUs}/>
                 <Route path='/technologies' component={Technologies}/>
