@@ -1,7 +1,7 @@
 import React from 'react';
 import bgImage from '../../../assets/images/mertvmore.jpg';
 import avatar from './../../../assets/images/samurai-08.jpg';
-import Preloader from "../../common/Preloader/Preloader";
+import Preloader from '../../common/Preloader/Preloader';
 
 const ProfileInfo = (props) => {
     if (!props.profile) {

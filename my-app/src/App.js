@@ -20,7 +20,7 @@ const App = () => {
                 <Route path='/technologies' component={Technologies}/>
                 <Route path='/learning' component={Learning}/>
                 <Route path='/contacts' component={Contacts}/>
-                <Route path='/profile' render={() => <ProfileContainer/>}/>
+                <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                 <Route path='/testdialogs' render={() => <TestDialogsContainer/>}/>
                 <Route path='/testusers' render={() => <UsersContainer />}/>
                 <Route path='/' component={Welcome}/>
