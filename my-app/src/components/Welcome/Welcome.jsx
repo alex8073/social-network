@@ -9,19 +9,19 @@ const Welcome = () => {
 
                 <div className={styles.welcome_icons}>
                     <div>
-                        <img src={require("../../img/icon_apple.svg")} alt="" />
+                        <img src={require("../../assets/images/icon_apple.svg")} alt="" />
                         <p>IOS</p>
                     </div>
                     <div>
-                        <img src={require("../../img/icon_android.svg")} alt="" />
+                        <img src={require("../../assets/images/icon_android.svg")} alt="" />
                         <p>Android</p>
                     </div>
                     <div>
-                        <img src={require("../../img/icon_windows.svg")} alt="" />
+                        <img src={require("../../assets/images/icon_windows.svg")} alt="" />
                         <p>Windows</p>
                     </div>
                     <div>
-                        <img src={require("../../img/icon_linux.svg")} alt="" />
+                        <img src={require("../../assets/images/icon_linux.svg")} alt="" />
                         <p>Linux</p>
                     </div>
                 </div>
