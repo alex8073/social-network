@@ -30,12 +30,21 @@ export const usersAPI = {
             });
     },
 
-    authMe() {
+    getUserProfile(userId) {
+        return instance.get(`profile/${userId}`)
+            .then(response => {
+                return response.data;
+            });
+    }
+};
+
+export const authAPI = {
+    me() {
         return instance.get(`auth/me`)
             .then(response => {
                 return response.data
             });
     }
-};
+}
 
 
