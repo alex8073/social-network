@@ -1,4 +1,3 @@
-import React from 'react';
 import {addReviewCreator, updateNewReviewBodyCreator} from '../../../redux/profileReducer';
 import Reviews from "./Reviews";
 import {connect} from "react-redux";

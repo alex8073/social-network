@@ -5,6 +5,7 @@ import AboutUs from './components/AboutUs/AboutUs';
 import Technologies from './components/Technologies/Technologies';
 import Learning from './components/Learning/Learning';
 import Contacts from './components/Contacts/Contacts';
+import Login from './components/Login/Login';
 import {Route, Switch} from 'react-router-dom';
 import TestDialogsContainer from "./components/TestDialogs/TestDialogsContainer";
 import UsersContainer from "./components/TestUsers/UsersContainer";
@@ -23,6 +24,7 @@ const App = () => {
                 <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                 <Route path='/testdialogs' render={() => <TestDialogsContainer/>}/>
                 <Route path='/testusers' render={() => <UsersContainer />}/>
+                <Route path='/login' render={() => <Login />}/>
                 <Route path='/' component={Welcome}/>
             </Switch>
         </div>
