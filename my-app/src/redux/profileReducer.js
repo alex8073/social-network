@@ -1,8 +1,9 @@
-import {usersAPI} from "../api/api";
+import {profileAPI, usersAPI} from "../api/api";
 
 const UPDATE_NEW_POST_BODY = 'UPDATE_NEW_POST_BODY';
 const ADD_POST = 'ADD_POST';
 const SET_USER_PROFILE = 'SET_USER_PROFILE';
+const SET_USER_STATUS = 'SET_USER_STATUS';
 
 let initialState = {
     reviews: [
@@ -11,7 +12,8 @@ let initialState = {
         {id: 3, message: 'третье сообщение'}
     ],
     newReviewBody: '',
-    profile: null
+    profile: null,
+    status: ''
 };
 
 const profileReducer = (state = initialState, action) => {
@@ -33,6 +35,11 @@ const profileReducer = (state = initialState, action) => {
                 ...state,
                 profile: action.profile
             };
+        case SET_USER_STATUS:
+            return {
+                ...state,
+                status: action.status
+            };
         default:
             return state;
     }
@@ -43,6 +50,7 @@ export const updateNewReviewBodyCreator = (body) =>
 
 export const addReviewCreator = () => ({type: ADD_POST});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
+export const setUserStatus = (status) => ({type: SET_USER_STATUS, status});
 
 export const getUserProfile = (userId) => {
     return (dispatch) => {
@@ -50,7 +58,25 @@ export const getUserProfile = (userId) => {
             dispatch(setUserProfile(data));
         });
     }
-}
+};
+
+export const getUserStatus = (userId) => {
+    return (dispatch) => {
+        profileAPI.getUserStatus(userId).then(data => {
+            dispatch(setUserStatus(data));
+        });
+    }
+};
+
+export const updateStatus = (status) => {
+    return (dispatch) => {
+        profileAPI.updateStatus(status).then(data => {
+            if (data.resultCode === 0) {
+                dispatch(setUserStatus(status));
+            }
+        });
+    }
+};
 
 
 export default profileReducer;
