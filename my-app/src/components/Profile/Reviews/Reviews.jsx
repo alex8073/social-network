@@ -1,18 +1,14 @@
 import React from 'react';
 import styles from './Reviews.module.css';
 import DialogsItem from '../../TestDialogs/DialogsItem/DialogsItem';
+import {Field, reduxForm} from 'redux-form';
 
 const Reviews = (props) => {
 
-    let postsElements = props.profilePage.reviews.map(p => <DialogsItem name={p.message} key={p.id} id={p.id} />);
+    let postsElements = props.profilePage.reviews.map(p => <DialogsItem name={p.message} key={p.id} id={p.id}/>);
 
-    let onPostBodyChange = (e) => {
-        let body = e.target.value;
-        props.updateNewReviewBody(body);
-    };
-
-    let onAddReviewClick = () => {
-        props.addReview();
+    let onAddPost = (value) => {
+        props.addReview(value.newPostText);;
     };
 
     return (
@@ -21,17 +17,25 @@ const Reviews = (props) => {
                 <div className={styles.reviewsItems}>
                     {postsElements}
                 </div>
-                <div>
-                    <textarea onChange={onPostBodyChange}
-                        value={props.profilePage.newReviewBody}
-                        placeholder='Please, enter your message.' />
-                </div>
-                <div>
-                    <button onClick={onAddReviewClick}>Add review</button>
-                </div>
+                <AddNewPostFormRedux onSubmit={onAddPost}/>
             </div>
         </div>
     )
 };
+
+const AddNewPostForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div>
+                <Field component={'textarea'} name={'newPostText'} placeholder='Please, enter your message.'/>
+            </div>
+            <div>
+                <button>Add post</button>
+            </div>
+        </form>
+    )
+};
+
+const AddNewPostFormRedux = reduxForm({form: 'ProfileAddNewPostForm'})(AddNewPostForm);
 
 export default Reviews; 

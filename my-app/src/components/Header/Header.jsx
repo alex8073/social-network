@@ -8,6 +8,7 @@ const Header = (props) => {
             <div className={styles.header_inner_wrapper}>
                 <div className={styles.logo_wrapper}>
                     <NavLink to="/"><img className={styles.logo} src='https://senticode.by/img/logo_v2.png' alt="logo"></img></NavLink>
+                    {/*<NavLink to="/"><img className={styles.logo} src='https://senticode.by/img/SenticodeLogo.svg' alt="logo"></img></NavLink>*/}
                 </div>
                 <nav className={styles.navbar}>
                     <ul className={styles.navbar_list}>

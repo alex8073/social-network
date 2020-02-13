@@ -1,4 +1,4 @@
-import {addReviewCreator, updateNewReviewBodyCreator} from '../../../redux/profileReducer';
+import {addReviewCreator} from '../../../redux/profileReducer';
 import Reviews from "./Reviews";
 import {connect} from "react-redux";
 
@@ -10,11 +10,8 @@ let mapStateToProps = (state) => {
 
 let mapDispatchToProps = (dispatch) => {
     return {
-        updateNewReviewBody: (body) => {
-            dispatch(updateNewReviewBodyCreator(body))
-        },
-        addReview: () => {
-            dispatch(addReviewCreator())
+        addReview: (newPostText) => {
+            dispatch(addReviewCreator(newPostText))
         }
     }
 };
