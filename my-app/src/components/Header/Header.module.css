@@ -14,8 +14,7 @@
 }
 
 .logo_wrapper .logo {
-    min-width: 59%;
-    max-width: 60%;
+    width: 60%;
 }
 .navbar_list {
     display: flex;

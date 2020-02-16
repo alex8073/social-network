@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Reviews.module.css';
-import DialogsItem from '../../TestDialogs/DialogsItem/DialogsItem';
+import DialogsItem from '../../Dialogs/DialogsItem/DialogsItem';
 import {Field, reduxForm} from 'redux-form';
 import {maxLengthCreator, required} from '../../../utils/validators/validators';
 import {Textarea} from '../../common/FormsControls/FormsControls';

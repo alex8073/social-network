@@ -7,8 +7,8 @@ import Learning from './components/Learning/Learning';
 import Contacts from './components/Contacts/Contacts';
 import Login from './components/Login/Login';
 import {Route, Switch} from 'react-router-dom';
-import TestDialogsContainer from "./components/TestDialogs/TestDialogsContainer";
-import UsersContainer from "./components/TestUsers/UsersContainer";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
+import UsersContainer from "./components/Users/UsersContainer";
 import ProfileContainer from "./components/Profile/ProfileContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 
@@ -22,8 +22,8 @@ const App = () => {
                 <Route path='/learning' component={Learning}/>
                 <Route path='/contacts' component={Contacts}/>
                 <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
-                <Route path='/testdialogs' render={() => <TestDialogsContainer/>}/>
-                <Route path='/testusers' render={() => <UsersContainer />}/>
+                <Route path='/dialogs' render={() => <DialogsContainer/>}/>
+                <Route path='/users' render={() => <UsersContainer />}/>
                 <Route path='/login' render={() => <Login />}/>
                 <Route path='/' component={Welcome}/>
             </Switch>

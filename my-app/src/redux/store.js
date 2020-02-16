@@ -1,5 +1,5 @@
 import profileReducer from './profileReducer';
-import testDialogsReduser from './testDialogsReduser';
+import dialogsReduser from './dialogsReduser';
 
 let store = {
     _state: {
@@ -11,7 +11,7 @@ let store = {
             ],
             newReviewBody: ''
         },
-        testDialogsPage: {
+        DialogsPage: {
             dialogs: [
                 { id: 1, name: 'Вася' },
                 { id: 2, name: 'Петя' },
@@ -40,7 +40,7 @@ let store = {
 
     dispatch(action) {
         this._state.reviewsPage = profileReducer(this._state.reviewsPage, action);
-        this._state.testDialogsPage = testDialogsReduser(this._state.testDialogsPage, action);
+        this._state.DialogsPage = dialogsReduser(this._state.DialogsPage, action);
         this._callSubscriber(this._state);
     }
 

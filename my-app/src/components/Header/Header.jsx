@@ -7,8 +7,7 @@ const Header = (props) => {
         <header className={styles.header}>
             <div className={styles.header_inner_wrapper}>
                 <div className={styles.logo_wrapper}>
-                    <NavLink to="/"><img className={styles.logo} src='https://senticode.by/img/logo_v2.png' alt="logo"></img></NavLink>
-                    {/*<NavLink to="/"><img className={styles.logo} src='https://senticode.by/img/SenticodeLogo.svg' alt="logo"></img></NavLink>*/}
+                    <NavLink to="/"><img className={styles.logo} src="https://senticode.by/img/SenticodeLogo.svg" alt="logo" /></NavLink>
                 </div>
                 <nav className={styles.navbar}>
                     <ul className={styles.navbar_list}>
@@ -17,8 +16,8 @@ const Header = (props) => {
                         <li className={styles.navbar_list_item}><NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/learning">Обучение</NavLink></li>
                         <li className={styles.navbar_list_item}><NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/contacts">Контакты</NavLink></li>
                         <li className={styles.navbar_list_item}><NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/profile">Профиль</NavLink></li>
-                        <li className={styles.navbar_list_item}><NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/testdialogs">TestDialogs</NavLink></li>
-                        <li className={styles.navbar_list_item}><NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/testusers">TestUsers</NavLink></li>
+                        <li className={styles.navbar_list_item}><NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/dialogs">Dialogs</NavLink></li>
+                        <li className={styles.navbar_list_item}><NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/users">Users</NavLink></li>
                     </ul>
                 </nav>
                 <div className={styles.loginBlock}>
