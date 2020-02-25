@@ -14,7 +14,8 @@ let initialState = {
     totalUsersCount: 0,
     currentPage: 1,
     isFetching: false,
-    followingInProgress: []
+    followingInProgress: [],
+    fake: 10
 };
 
 const UsersReducer = (state = initialState, action) => {
@@ -53,6 +54,11 @@ const UsersReducer = (state = initialState, action) => {
                 followingInProgress: action.isFetching
                     ? [...state.followingInProgress, action.userId]
                     : [state.followingInProgress.filter(id => id !== action.userId)]
+            };
+        case 'FAKE':
+            return {
+                ...state,
+                fake: state.fake + 1
             };
         default:
             return state;
