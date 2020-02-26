@@ -3,6 +3,7 @@ import React from 'react';
 import avatar from './../../../assets/images/samurai-08.jpg';
 import Preloader from '../../common/Preloader/Preloader';
 import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 const ProfileInfo = (props) => {
     if (!props.profile) {
@@ -16,7 +17,7 @@ const ProfileInfo = (props) => {
                 <div>
                     <img src={!props.profile || !props.profile.photos.large ? avatar : props.profile.photos.large}
                          alt="" style={{width: 30 + '%'}}/>
-                    <ProfileStatus status={props.status}
+                    <ProfileStatusWithHooks status={props.status}
                                    updateStatus={props.updateStatus}/>
                 </div>
             </div>
