@@ -5,7 +5,7 @@ const SET_USER_PROFILE = 'SET_USER_PROFILE';
 const SET_USER_STATUS = 'SET_USER_STATUS';
 
 let initialState = {
-    reviews: [
+    posts: [
         {id: 1, message: 'первое сообщение'},
         {id: 2, message: 'второе сообщение'},
         {id: 3, message: 'третье сообщение'}
@@ -20,7 +20,7 @@ const profileReducer = (state = initialState, action) => {
             return {
                 ...state,
                 newReviewBody: '',
-                reviews: [...state.reviews, {id: state.reviews.length + 1, message: action.newPostText}],
+                posts: [...state.posts, {id: state.posts.length + 1, message: action.newPostText}],
 
             };
         case SET_USER_PROFILE:
@@ -38,7 +38,7 @@ const profileReducer = (state = initialState, action) => {
     }
 };
 
-export const addReviewCreator = (newPostText) => ({type: ADD_POST, newPostText});
+export const addPostCreator = (newPostText) => ({type: ADD_POST, newPostText});
 export const setUserProfile = (profile) => ({type: SET_USER_PROFILE, profile});
 export const setUserStatus = (status) => ({type: SET_USER_STATUS, status});
 

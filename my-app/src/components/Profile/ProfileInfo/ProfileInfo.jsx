@@ -2,7 +2,7 @@ import React from 'react';
 // import bgImage from '../../../assets/images/mertvmore.jpg';
 import avatar from './../../../assets/images/samurai-08.jpg';
 import Preloader from '../../common/Preloader/Preloader';
-import ProfileStatus from './ProfileStatus';
+// import ProfileStatus from './ProfileStatus';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 const ProfileInfo = (props) => {

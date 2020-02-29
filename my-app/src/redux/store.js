@@ -4,12 +4,12 @@ import dialogsReduser from './dialogsReduser';
 let store = {
     _state: {
         reviewsPage: {
-            reviews: [
+            posts: [
                 { id: 1, message: 'первое сообщение' },
                 { id: 2, message: 'второе сообщение' },
                 { id: 3, message: 'третье сообщение' }
             ],
-            newReviewBody: ''
+            newPostBody: ''
         },
         DialogsPage: {
             dialogs: [
