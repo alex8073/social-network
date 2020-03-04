@@ -13,24 +13,3 @@
     border-radius: 50%;
 
 }
-
-.selectedPage {
-    font-weight: bold;
-    background-color: #01C5BB;
-    color: #FFF;
-}
-
-.pages {
-    display: inline-block;
-    text-align: center;
-    width: 25px;
-    padding: 5px;
-    margin: 5px 2px;
-    border: 1px solid #0A246A;
-    border-radius: 20%;
-}
-
-.pages:hover {
-    cursor: pointer;
-}
-

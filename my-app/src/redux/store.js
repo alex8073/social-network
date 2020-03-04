@@ -5,24 +5,24 @@ let store = {
     _state: {
         reviewsPage: {
             posts: [
-                { id: 1, message: 'первое сообщение' },
-                { id: 2, message: 'второе сообщение' },
-                { id: 3, message: 'третье сообщение' }
+                {id: 1, message: 'первое сообщение'},
+                {id: 2, message: 'второе сообщение'},
+                {id: 3, message: 'третье сообщение'}
             ],
             newPostBody: ''
         },
         DialogsPage: {
             dialogs: [
-                { id: 1, name: 'Вася' },
-                { id: 2, name: 'Петя' },
-                { id: 3, name: 'Дима' },
-                { id: 4, name: 'Вера' },
-                { id: 5, name: 'Валя' },
+                {id: 1, name: 'Вася'},
+                {id: 2, name: 'Петя'},
+                {id: 3, name: 'Дима'},
+                {id: 4, name: 'Вера'},
+                {id: 5, name: 'Валя'},
             ],
             messages: [
-                { id: 1, message: 'Замечательно' },
-                { id: 2, message: 'Здорово' },
-                { id: 3, message: 'Отлично' },
+                {id: 1, message: 'Замечательно'},
+                {id: 2, message: 'Здорово'},
+                {id: 3, message: 'Отлично'},
             ],
             newMessageText: 'Senticode.by'
         }
@@ -44,8 +44,9 @@ let store = {
         this._callSubscriber(this._state);
     }
 
-}
+};
 
 export default store;
+
 window.store = store;
 
