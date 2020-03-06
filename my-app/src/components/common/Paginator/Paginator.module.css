@@ -1,3 +1,6 @@
+.paginator{
+    padding: 30px 0;
+}
 .selectedPage {
     font-weight: bold;
     background-color: #01C5BB;
@@ -18,3 +21,19 @@
     cursor: pointer;
 }
 
+.prev,
+.next {
+    padding: 5px 10px;
+    background-color: #e560ff;
+    color: #fff;
+    font-weight: 900;
+    border-radius: 20px;
+    border: none;
+    outline: none;
+}
+
+.prev:hover,
+.next:hover {
+    background-color: #fff;
+    color: #01C5BB;
+}
