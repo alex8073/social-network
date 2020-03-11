@@ -1,0 +1,53 @@
+.welcome {
+    background: url('../../assets/images/pattern.png') repeat scroll 0 0 rgba(0, 0, 0, 0.7);
+    position  : relative;
+}
+
+.welcome:before {
+    content        : '';
+    position       : absolute;
+    width          : 100%;
+    height         : 100%;
+    background     : url('../../assets/images/bg_main_1.jpg') no-repeat 50% 50%;
+    background-size: cover;
+    z-index        : -999999;
+}
+
+.welcome_inner_wrapper {
+    height         : calc(100vh - 80px);
+    width          : 1140px;
+    margin         : 0 auto;
+    padding        : 0;
+    display        : flex;
+    justify-content: flex-end;
+    flex-direction : column;
+    color          : #fff;
+}
+
+.welcome_caption {
+    font-size  : 50px;
+    font-weight: normal;
+    margin     : 0;
+    text-align : center;
+}
+
+.welcome_caption span {
+    font-size  : 25px;
+    font-weight: normal;
+}
+
+
+.welcome_icons {
+    padding        : 20vh 0 10vh 0;
+    display        : flex;
+    justify-content: space-between;
+}
+
+.welcome_icons div {
+    text-align: center;
+    font-size : 22px;
+}
+
+.welcome_icons img {
+    height: 90px;
+}
