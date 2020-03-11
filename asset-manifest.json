@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/demo_socialnetwork/static/css/main.75215cfd.chunk.css",
+    "main.js": "/demo_socialnetwork/static/js/main.50aa89f5.chunk.js",
+    "main.js.map": "/demo_socialnetwork/static/js/main.50aa89f5.chunk.js.map",
+    "runtime-main.js": "/demo_socialnetwork/static/js/runtime-main.b995aae6.js",
+    "runtime-main.js.map": "/demo_socialnetwork/static/js/runtime-main.b995aae6.js.map",
+    "static/js/2.9f4f8948.chunk.js": "/demo_socialnetwork/static/js/2.9f4f8948.chunk.js",
+    "static/js/2.9f4f8948.chunk.js.map": "/demo_socialnetwork/static/js/2.9f4f8948.chunk.js.map",
+    "static/css/3.d7d67821.chunk.css": "/demo_socialnetwork/static/css/3.d7d67821.chunk.css",
+    "static/js/3.51f016a2.chunk.js": "/demo_socialnetwork/static/js/3.51f016a2.chunk.js",
+    "static/js/3.51f016a2.chunk.js.map": "/demo_socialnetwork/static/js/3.51f016a2.chunk.js.map",
+    "static/css/4.b2f0c652.chunk.css": "/demo_socialnetwork/static/css/4.b2f0c652.chunk.css",
+    "static/js/4.a575e803.chunk.js": "/demo_socialnetwork/static/js/4.a575e803.chunk.js",
+    "static/js/4.a575e803.chunk.js.map": "/demo_socialnetwork/static/js/4.a575e803.chunk.js.map",
+    "index.html": "/demo_socialnetwork/index.html",
+    "precache-manifest.8ca96640f2c299b5aee07e63f8bb577b.js": "/demo_socialnetwork/precache-manifest.8ca96640f2c299b5aee07e63f8bb577b.js",
+    "service-worker.js": "/demo_socialnetwork/service-worker.js",
+    "static/css/3.d7d67821.chunk.css.map": "/demo_socialnetwork/static/css/3.d7d67821.chunk.css.map",
+    "static/css/4.b2f0c652.chunk.css.map": "/demo_socialnetwork/static/css/4.b2f0c652.chunk.css.map",
+    "static/css/main.75215cfd.chunk.css.map": "/demo_socialnetwork/static/css/main.75215cfd.chunk.css.map",
+    "static/js/2.9f4f8948.chunk.js.LICENSE": "/demo_socialnetwork/static/js/2.9f4f8948.chunk.js.LICENSE",
+    "static/media/Welcome.module.css": "/demo_socialnetwork/static/media/bg_main_1.b82722fa.jpg",
+    "static/media/icon_android.svg": "/demo_socialnetwork/static/media/icon_android.8602117e.svg",
+    "static/media/icon_apple.svg": "/demo_socialnetwork/static/media/icon_apple.bc010650.svg",
+    "static/media/icon_linux.svg": "/demo_socialnetwork/static/media/icon_linux.bf128420.svg",
+    "static/media/icon_windows.svg": "/demo_socialnetwork/static/media/icon_windows.dafa1c75.svg",
+    "static/media/preloader.gif": "/demo_socialnetwork/static/media/preloader.c1a4c655.gif",
+    "static/media/samurai-08.jpg": "/demo_socialnetwork/static/media/samurai-08.d7e22ac2.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.b995aae6.js",
+    "static/js/2.9f4f8948.chunk.js",
+    "static/css/main.75215cfd.chunk.css",
+    "static/js/main.50aa89f5.chunk.js"
+  ]
+}
