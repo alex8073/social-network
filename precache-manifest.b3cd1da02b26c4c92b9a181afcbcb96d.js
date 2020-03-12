@@ -1,43 +1,43 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "fa8861623d0583c530866fa22dbc94a8",
+    "revision": "12e71adf2a58cc14c5b93e5a81df6a4f",
     "url": "/react_social-network/index.html"
   },
   {
-    "revision": "1a69865900c83474250a",
+    "revision": "25d74f645b03b17a86f1",
     "url": "/react_social-network/static/css/3.40367f41.chunk.css"
   },
   {
-    "revision": "7795965629dbd2f8c07f",
+    "revision": "2e7c764378eef275b4f4",
     "url": "/react_social-network/static/css/4.b0038e3a.chunk.css"
   },
   {
-    "revision": "6b284cb1cf65ae75b045",
+    "revision": "df382ef423833c0c9b17",
     "url": "/react_social-network/static/css/main.566c76c6.chunk.css"
   },
   {
-    "revision": "458f8384b83d55d20536",
-    "url": "/react_social-network/static/js/2.9f4f8948.chunk.js"
+    "revision": "0aa4974e49abe11d6198",
+    "url": "/react_social-network/static/js/2.4987b07b.chunk.js"
   },
   {
     "revision": "6019a2db51c90e97b4859c840427a0d6",
-    "url": "/react_social-network/static/js/2.9f4f8948.chunk.js.LICENSE"
+    "url": "/react_social-network/static/js/2.4987b07b.chunk.js.LICENSE"
   },
   {
-    "revision": "1a69865900c83474250a",
-    "url": "/react_social-network/static/js/3.3cd94dd5.chunk.js"
+    "revision": "25d74f645b03b17a86f1",
+    "url": "/react_social-network/static/js/3.1c2b3b21.chunk.js"
   },
   {
-    "revision": "7795965629dbd2f8c07f",
-    "url": "/react_social-network/static/js/4.8602ad29.chunk.js"
+    "revision": "2e7c764378eef275b4f4",
+    "url": "/react_social-network/static/js/4.17b20eae.chunk.js"
   },
   {
-    "revision": "6b284cb1cf65ae75b045",
-    "url": "/react_social-network/static/js/main.48c4ff17.chunk.js"
+    "revision": "df382ef423833c0c9b17",
+    "url": "/react_social-network/static/js/main.a1fe0538.chunk.js"
   },
   {
-    "revision": "91897f35c54c5e91e19f",
-    "url": "/react_social-network/static/js/runtime-main.0138f63a.js"
+    "revision": "4f55164d90497c1ba4ea",
+    "url": "/react_social-network/static/js/runtime-main.43737fa9.js"
   },
   {
     "revision": "b82722facdbf766511439c67032eb545",
