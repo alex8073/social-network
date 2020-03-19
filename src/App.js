@@ -20,8 +20,18 @@ const ProfileContainer = React.lazy(() => import('./components/Profile/ProfileCo
 
 
 class App extends Component {
+    catchAllUnhandledErrors = (reason) => {
+        alert("Произошла ошибка.");
+        console.log(reason);
+    };
+
     componentDidMount() {
         this.props.initializeApp();
+        window.addEventListener("unhandledrejection", this.catchAllUnhandledErrors);
+    }
+
+    componentWillUnmount() {
+        window.removeEventListener("unhandledrejection", this.catchAllUnhandledErrors);
     }
 
     render() {
@@ -42,7 +52,8 @@ class App extends Component {
                         <Route path='/dialogs' render={() => <DialogsContainer/>}/>
                         <Route path='/users' render={() => <UsersContainer/>}/>
                         <Route path='/login' render={() => <Login/>}/>
-                        <Route path='/' component={Welcome}/>
+                        <Route exact path='/' component={Welcome}/>
+                        <Route path='*' render={() => <div>404 NOT FOUND</div>}/>
                     </Switch>
                 </Suspense>
             </div>
