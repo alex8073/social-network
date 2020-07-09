@@ -50,7 +50,7 @@ class App extends Component {
                         <Route path='/contacts' component={Contacts}/>
                         <Route path='/profile/:userId?' render={() => <ProfileContainer/>}/>
                         <Route path='/dialogs' render={() => <DialogsContainer/>}/>
-                        <Route path='/users' render={() => <UsersContainer/>}/>
+                        <Route path='/users' render={() => <UsersContainer pageTitle={'Самураи'}/>}/>
                         <Route path='/login' render={() => <Login/>}/>
                         <Route exact path='/' component={Welcome}/>
                         <Route path='*' render={() => <div>404 NOT FOUND</div>}/>
