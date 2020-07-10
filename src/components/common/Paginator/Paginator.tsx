@@ -3,8 +3,8 @@ import styles from "./Paginator.module.css";
 import cn from "classnames/bind";
 
 type PropsType = {
-    totalItemsCount:number
-    pageSize:number
+    totalItemsCount: number
+    pageSize: number
     currentPage: number
     onPageChanged: (pageNumber: number) => void
     portionSize?: number
@@ -26,22 +26,25 @@ const Paginator: React.FC<PropsType> = ({totalItemsCount, pageSize, currentPage,
     let rightPortionPageNumber = portionNumber * portionSize;
 
 
-
     return <div className={styles.paginator}>
         {portionNumber > 1 &&
-        <button className={styles.prev} onClick={() => {setPortionNumber(portionNumber - 1)}}>PREV</button>}
+        <button className={styles.prev} onClick={() => {
+            setPortionNumber(portionNumber - 1)
+        }}>PREV</button>}
         {pages
             .filter(p => p >= leftPortionPageNumber && p <= rightPortionPageNumber)
             .map(p => {
-            return <span
-                className={cn(styles.pages, {[styles.selectedPage]: currentPage === p})}
-                key={p}
-                onClick={(e) => {
-                    onPageChanged(p)
-                }}>{p}</span>
-        })}
+                return <span
+                    className={cn(styles.pages, {[styles.selectedPage]: currentPage === p})}
+                    key={p}
+                    onClick={(e) => {
+                        onPageChanged(p)
+                    }}>{p}</span>
+            })}
         {portionCount > portionNumber &&
-        <button className={styles.next} onClick={() => {setPortionNumber(portionNumber + 1)}}>NEXT</button>}
+        <button className={styles.next} onClick={() => {
+            setPortionNumber(portionNumber + 1)
+        }}>NEXT</button>}
     </div>
 };
 
