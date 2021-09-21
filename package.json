@@ -4,6 +4,12 @@
   "private": true,
   "homepage": "https://alex8073.github.io/react_social-network",
   "dependencies": {
+    "@emotion/react": "^11.4.1",
+    "@emotion/styled": "^11.3.0",
+    "@fontsource/roboto": "^4.5.0",
+    "@mui/icons-material": "^5.0.0",
+    "@mui/material": "^5.0.0",
+    "@mui/styled-engine-sc": "^5.0.0",
     "@types/classnames": "^2.2.10",
     "@types/jest": "^26.0.3",
     "@types/node": "^14.0.14",
@@ -13,7 +19,7 @@
     "@types/redux-form": "^8.2.6",
     "axios": "^0.21.1",
     "classnames": "^2.2.6",
-    "react": "^16.13.0",
+    "react": "^16.14.0",
     "react-dom": "^16.13.0",
     "react-redux": "^7.2.0",
     "react-router-dom": "^5.1.2",
@@ -22,7 +28,8 @@
     "redux-form": "^8.3.1",
     "redux-thunk": "^2.3.0",
     "reselect": "^4.0.0",
-    "save": "^2.4.0"
+    "save": "^2.4.0",
+    "styled-components": "^5.3.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -48,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "@types/styled-components": "^5.1.14",
     "gh-pages": "^2.2.0",
     "react-test-renderer": "^16.13.0",
     "typescript": "^3.9.6"

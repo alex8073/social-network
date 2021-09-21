@@ -12,9 +12,6 @@ const Header = (props) => {
                 <nav className={styles.navbar}>
                     <ul className={styles.navbar_list}>
                         <li className={styles.navbar_list_item}><NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/aboutus">О нас</NavLink></li>
-                        <li className={styles.navbar_list_item}><NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/technologies">Технологии</NavLink></li>
-                        <li className={styles.navbar_list_item}><NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/learning">Обучение</NavLink></li>
-                        <li className={styles.navbar_list_item}><NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/contacts">Контакты</NavLink></li>
                         <li className={styles.navbar_list_item}><NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/profile">Профиль</NavLink></li>
                         <li className={styles.navbar_list_item}><NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/dialogs">Dialogs</NavLink></li>
                         <li className={styles.navbar_list_item}><NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/users">Users</NavLink></li>
