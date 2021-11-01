@@ -1,5 +1,7 @@
 import {authAPI, ResultCodeEnum, ResultCodeForCaptcha, securityAPI} from "../api/api";
 import {stopSubmit} from 'redux-form';
+import {ThunkAction} from "redux-thunk";
+import {AppStateType} from "./redux-store";
 
 const SET_USER_DATA = 'SET_USER_DATA';
 const GET_CAPTCHA_URL_SUCCESS = 'GET_CAPTCHA_URL_SUCCESS';
@@ -14,7 +16,7 @@ let initialState = {
 
 export type InitialStateType = typeof initialState;
 
-const authReducer = (state = initialState, action: any): InitialStateType => {
+const authReducer = (state = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
         case SET_USER_DATA:
         case GET_CAPTCHA_URL_SUCCESS:
@@ -27,6 +29,8 @@ const authReducer = (state = initialState, action: any): InitialStateType => {
             return state;
     }
 };
+
+type ActionsType = SetAuthUserDataActionType | GetCaptchaUrlSuccessActionType;
 
 type SetAuthUserDataActionPayloadType = {
     userId: number | null
@@ -49,7 +53,9 @@ type GetCaptchaUrlSuccessActionType = {
 
 export const getCaptchaUrlSuccess = (captchaUrl: string): GetCaptchaUrlSuccessActionType => ({type: GET_CAPTCHA_URL_SUCCESS, payload: {captchaUrl}});
 
-export const getAuthUserData = () => async (dispatch: any) => {
+type ThunkType = ThunkAction<Promise<void>, AppStateType, unknown, ActionsType>;
+
+export const getAuthUserData = ():ThunkType => async (dispatch) => {
     let response = await authAPI.me();
 
     if (response.resultCode === ResultCodeEnum.Success) {
@@ -72,13 +78,13 @@ export const login = (email: string, password: string, rememberMe: boolean, capt
     }
 };
 
-export const getCaptchaUrl = () => async (dispatch: any) => {
+export const getCaptchaUrl = ():ThunkType => async (dispatch) => {
     const response = await securityAPI.getCaptchaUrl();
     const captchaUrl = response.data.url;
     dispatch(getCaptchaUrlSuccess(captchaUrl));
 };
 
-export const logout = () => async (dispatch: any) => {
+export const logout = ():ThunkType => async (dispatch) => {
     let response = await authAPI.logout();
 
     if (response.resultCode === ResultCodeEnum.Success) {
