@@ -1,5 +1,5 @@
 import axios from 'axios';
-import {ProfileType} from '../types/types';
+import {PhotosType, ProfileType, UserType} from '../types/types';
 
 const instance = axios.create({
     baseURL: 'https://social-network.samuraijs.com/api/1.0/',
@@ -9,19 +9,31 @@ const instance = axios.create({
     }
 });
 
+type GetUsersType = {
+    items: Array<UserType>
+    totalCount: number
+    error: string | null
+}
+
+type FollowUnfollowType = {
+    resultCode: number
+    messages: Array<string>
+    data: {}
+}
+
 export const usersAPI = {
     getUsers(currentPage = 1, pageSize = 5) {
-        return instance.get(`users?page=${currentPage}&count=${pageSize}`)
+        return instance.get<GetUsersType>(`users?page=${currentPage}&count=${pageSize}`)
             .then(res => res.data);
     },
 
     follow(userId: number) {
-        return instance.post(`follow/${userId}`)
+        return instance.post<FollowUnfollowType>(`follow/${userId}`)
             .then(res => res.data);
     },
 
     unfollow(userId: number) {
-        return instance.delete(`follow/${userId}`)
+        return instance.delete<FollowUnfollowType>(`follow/${userId}`)
             .then(res => res.data);
     },
 
@@ -31,26 +43,37 @@ export const usersAPI = {
     }
 };
 
+type UpdateStatusType = FollowUnfollowType
+
+type SavePhotoType = {
+    data: PhotosType
+    resultCode: number
+    messages: Array<string>
+
+}
+
+type SaveProfileType = FollowUnfollowType
+
 export const profileAPI = {
     getUserProfile(userId: number) {
-        return instance.get(`profile/${userId}`)
+        return instance.get<ProfileType>(`profile/${userId}`)
             .then(res => res.data);
     },
 
     getUserStatus(userId: number) {
-        return instance.get(`profile/status/${userId}`)
+        return instance.get<string>(`profile/status/${userId}`)
             .then(res => res.data);
     },
 
     updateStatus(status: string) {
-        return instance.put(`/profile/status`, {status: status})
+        return instance.put<UpdateStatusType>(`/profile/status`, {status: status})
             .then(res => res.data);
     },
 
     savePhoto(photoFile: any) {
         const formData = new FormData();
         formData.append('image', photoFile);
-        return instance.put(`/profile/photo`, formData, {
+        return instance.put<SavePhotoType>(`/profile/photo`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -59,7 +82,7 @@ export const profileAPI = {
     },
 
     saveProfile(profile: ProfileType) {
-        return instance.put(`/profile`, profile)
+        return instance.put<SaveProfileType>(`/profile`, profile)
             .then(res => res.data);
     }
 };
