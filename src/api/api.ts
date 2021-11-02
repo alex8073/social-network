@@ -12,23 +12,17 @@ const instance = axios.create({
 export const usersAPI = {
     getUsers(currentPage = 1, pageSize = 5) {
         return instance.get(`users?page=${currentPage}&count=${pageSize}`)
-            .then(response => {
-                return response.data
-            });
+            .then(res => res.data);
     },
 
     follow(userId: number) {
         return instance.post(`follow/${userId}`)
-            .then(response => {
-                return response.data
-            });
+            .then(res => res.data);
     },
 
     unfollow(userId: number) {
         return instance.delete(`follow/${userId}`)
-            .then(response => {
-                return response.data
-            });
+            .then(res => res.data);
     },
 
     getUserProfile(userId: number) {
@@ -40,23 +34,17 @@ export const usersAPI = {
 export const profileAPI = {
     getUserProfile(userId: number) {
         return instance.get(`profile/${userId}`)
-            .then(response => {
-                return response.data;
-            });
+            .then(res => res.data);
     },
 
     getUserStatus(userId: number) {
         return instance.get(`profile/status/${userId}`)
-            .then(response => {
-                return response.data;
-            });
+            .then(res => res.data);
     },
 
     updateStatus(status: string) {
         return instance.put(`/profile/status`, {status: status})
-            .then(response => {
-                return response.data;
-            });
+            .then(res => res.data);
     },
 
     savePhoto(photoFile: any) {
@@ -67,16 +55,12 @@ export const profileAPI = {
                 'Content-Type': 'multipart/form-data'
             }
         })
-            .then(response => {
-                return response.data;
-            });
+            .then(res => res.data);
     },
 
     saveProfile(profile: ProfileType) {
         return instance.put(`/profile`, profile)
-            .then(response => {
-                return response.data;
-            });
+            .then(res => res.data);
     }
 };
 
@@ -106,32 +90,36 @@ type LoginResponseType = {
     messages: Array<string>
 }
 
+type LogoutResponseType = {
+    resultCode: number
+    messages: Array<string>
+    data: {}
+}
+
 export const authAPI = {
     me() {
         return instance.get<MeResponseType>(`auth/me`)
-            .then(response => {
-                return response.data;
-            });
+            .then(res => res.data);
     },
 
     login(email: string, password: string, rememberMe = false, captcha: null | string = null) {
         return instance.post<LoginResponseType>(`auth/login`, {email, password, rememberMe, captcha})
-            .then(response => {
-                return response.data;
-            });
+            .then(res => res.data);
     },
 
     logout() {
-        return instance.delete(`auth/login`)
-            .then(response => {
-                return response.data;
-            });
+        return instance.delete<LogoutResponseType>(`auth/login`)
+            .then(res => res.data);
     }
 };
 
+type GetCaptchaUrlResponseType = {
+    url: string
+}
+
 export const securityAPI = {
     getCaptchaUrl() {
-        return instance.get(`security/get-captcha-url`);
+        return instance.get<GetCaptchaUrlResponseType>(`security/get-captcha-url`).then(res => res.data);
     }
 };
 
