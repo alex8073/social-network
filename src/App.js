@@ -11,7 +11,7 @@ import UsersContainer from "./components/Users/UsersContainer";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import {connect, Provider} from 'react-redux';
 import {compose} from 'redux';
-import {initializeApp} from './redux/appReducer';
+import {initializeApp} from './redux/app-reducer';
 import Preloader from './components/common/Preloader/Preloader';
 import store from './redux/redux-store';
 

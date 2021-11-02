@@ -1,4 +1,4 @@
-import {getAuthUserData} from './authReducer';
+import {getAuthUserData} from './auth-reducer';
 import {ThunkAction} from "redux-thunk";
 import {AppStateType} from "./redux-store";
 
