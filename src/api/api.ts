@@ -16,7 +16,7 @@ type GetUsersType = {
 }
 
 type FollowUnfollowType = {
-    resultCode: number
+    resultCode: ResultCodeEnum
     messages: Array<string>
     data: {}
 }
@@ -47,7 +47,7 @@ type UpdateStatusType = FollowUnfollowType
 
 type SavePhotoType = {
     data: PhotosType
-    resultCode: number
+    resultCode: ResultCodeEnum
     messages: Array<string>
 
 }
@@ -73,7 +73,7 @@ export const profileAPI = {
     savePhoto(photoFile: any) {
         const formData = new FormData();
         formData.append('image', photoFile);
-        return instance.put<SavePhotoType>(`/profile/photo`, formData, {
+        return instance.put(`/profile/photo`, formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }
@@ -105,6 +105,7 @@ type MeResponseType = {
     resultCode: ResultCodeEnum
     messages: Array<string>
 }
+
 type LoginResponseType = {
     data: {
         id: number
@@ -114,7 +115,7 @@ type LoginResponseType = {
 }
 
 type LogoutResponseType = {
-    resultCode: number
+    resultCode: ResultCodeEnum
     messages: Array<string>
     data: {}
 }
