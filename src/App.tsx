@@ -1,10 +1,6 @@
 import React, { Component, Suspense } from "react";
 import "./App.css";
 import Welcome from "./components/Welcome/Welcome";
-import AboutUs from "./components/AboutUs/AboutUs";
-import Technologies from "./components/Technologies/Technologies";
-import Learning from "./components/Learning/Learning";
-import Contacts from "./components/Contacts/Contacts";
 import Login from "./components/Login/Login";
 import { HashRouter, Route, Switch, withRouter } from "react-router-dom";
 import UsersContainer from "./components/Users/UsersContainer";
@@ -48,10 +44,6 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                 <HeaderContainer />
                 <Suspense fallback={<Preloader />}>
                     <Switch>
-                        <Route path="/about-us" component={AboutUs} />
-                        <Route path="/technologies" component={Technologies} />
-                        <Route path="/learning" component={Learning} />
-                        <Route path="/contacts" component={Contacts} />
                         <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
                         <Route path="/dialogs" render={() => <DialogsContainer />} />
                         <Route path="/users" render={() => <UsersContainer pageTitle={"Самураи"} />} />
