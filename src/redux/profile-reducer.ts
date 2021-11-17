@@ -58,7 +58,7 @@ export const actions = {
     savePhotoSuccess: (photos: PhotosType) => ({ type: "SN/PROFILE/SAVE_PHOTO_SUCCESS", photos } as const),
 };
 
-type ThunkType = BaseThunkType<ActionsType | FormAction>;
+export type ThunkType = BaseThunkType<ActionsType | FormAction>;
 
 export const getUserProfile =
     (userId: number): ThunkType =>
