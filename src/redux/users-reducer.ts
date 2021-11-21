@@ -5,7 +5,7 @@ import { Dispatch } from "redux";
 import { BaseThunkType, InferActionsType } from "./redux-store";
 import { usersAPI } from "../api/users-api";
 
-let initialState = {
+const initialState = {
     users: [] as Array<UserType>,
     pageSize: 5,
     totalUsersCount: 0,
@@ -14,9 +14,9 @@ let initialState = {
     followingInProgress: [] as Array<number>, //array of users ids
 };
 
-type InitialStateType = typeof initialState;
+export type InitialStateType = typeof initialState;
 
-const UsersReducer = (state = initialState, action: ActionsType): InitialStateType => {
+export const UsersReducer = (state = initialState, action: ActionsType): InitialStateType => {
     switch (action.type) {
         case "SN/USERS/FOLLOW":
             return {
@@ -93,7 +93,7 @@ export const follow = (userId: number): ThunkType => {
     return async (dispatch) => {
         let apiMethod = usersAPI.follow.bind(usersAPI);
         let actionCreator = actions.followSuccess;
-        _followUnfollowFlow(dispatch, userId, apiMethod, actionCreator);
+        await _followUnfollowFlow(dispatch, userId, apiMethod, actionCreator);
     };
 };
 
@@ -101,7 +101,7 @@ export const unfollow = (userId: number): ThunkType => {
     return async (dispatch) => {
         let apiMethod = usersAPI.unfollow.bind(usersAPI);
         let actionCreator = actions.unfollowSuccess;
-        _followUnfollowFlow(dispatch, userId, apiMethod, actionCreator);
+        await _followUnfollowFlow(dispatch, userId, apiMethod, actionCreator);
     };
 };
 
