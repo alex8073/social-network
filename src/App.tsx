@@ -1,9 +1,9 @@
 import React, { Component, Suspense } from "react";
 import "./App.css";
 import Welcome from "./components/Welcome/Welcome";
-import Login from "./components/Login/Login";
+import { LoginPage } from "./components/Login/Login";
 import { HashRouter, Route, Switch, withRouter } from "react-router-dom";
-import UsersContainer from "./components/Users/UsersContainer";
+import { UsersPage } from "./components/Users/UsersPage";
 import HeaderContainer from "./components/Header/HeaderContainer";
 import { connect, Provider } from "react-redux";
 import { compose } from "redux";
@@ -46,8 +46,8 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                     <Switch>
                         <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
                         <Route path="/dialogs" render={() => <DialogsContainer />} />
-                        <Route path="/users" render={() => <UsersContainer pageTitle={"Самураи"} />} />
-                        <Route path="/login" render={() => <Login />} />
+                        <Route path="/users" render={() => <UsersPage pageTitle={"Самураи"} />} />
+                        <Route path="/login" render={() => <LoginPage />} />
                         <Route exact path="/" component={Welcome} />
                         <Route path="*" render={() => <div>404 NOT FOUND</div>} />
                     </Switch>
