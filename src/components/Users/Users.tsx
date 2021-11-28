@@ -13,6 +13,7 @@ import {
     getUsers,
     getUsersFilter,
 } from "../../redux/users-selectors";
+import { useHistory } from "react-router";
 
 type PropsType = {};
 
@@ -25,10 +26,29 @@ export const Users: React.FC<PropsType> = () => {
     const filter = useSelector(getUsersFilter);
 
     const dispatch = useDispatch();
+    const history = useHistory();
 
     useEffect(() => {
-        dispatch(requestUsers(currentPage, pageSize, filter));
+        const parsed = new URLSearchParams(history.location.search);
+        const page = parsed.get("page");
+        const term = parsed.get("term");
+        const friend = parsed.get("friend");
+
+        const actualPage = page === null ? 1 : Number(page);
+        const actualFilter = {
+            ...filter,
+            term: term === null ? "" : term,
+            friend: friend === "true" ? true : friend === "false" ? false : null,
+        };
+        dispatch(requestUsers(actualPage, pageSize, actualFilter));
     }, []);
+
+    useEffect(() => {
+        history.push({
+            pathname: "/users",
+            search: `?term=${filter.term}&friend=${filter.friend}&page=${currentPage}`,
+        });
+    }, [filter, currentPage]);
 
     const onPageChanged = (pageNumber: number) => {
         dispatch(requestUsers(pageNumber, pageSize, filter));
@@ -62,6 +82,10 @@ export const Users: React.FC<PropsType> = () => {
                         follow={follow}
                     />
                 ))}
+            </div>
+            <div>
+                <h6>Общее число пользователей:</h6>
+                <span>{totalUsersCount}</span>
             </div>
         </div>
     );
