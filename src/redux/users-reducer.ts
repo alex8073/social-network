@@ -38,7 +38,7 @@ export const UsersReducer = (state = initialState, action: ActionsType): Initial
         case "SN/USERS/SET_CURRENT_PAGE":
             return { ...state, currentPage: action.currentPage };
         case "SN/USERS/SET_FILTER":
-            return { ...state, filter: { ...state.filter, term: action.payload.term } };
+            return { ...state, filter: action.payload };
         case "SN/USERS/SET_TOTAL_USERS_COUNT":
             return { ...state, totalUsersCount: action.count };
         case "SN/USERS/TOGGLE_IS_FETCHING":
@@ -63,7 +63,8 @@ export const actions = {
     setUsers: (users: Array<UserType>) => ({ type: "SN/USERS/SET_USERS", users } as const),
     setCurrentPage: (currentPage: number) => ({ type: "SN/USERS/SET_CURRENT_PAGE", currentPage } as const),
     setFilter: (filter: FilterType) => ({ type: "SN/USERS/SET_FILTER", payload: filter } as const),
-    setTotalUsersCount: (totalUsersCount: number) => ({ type: "SN/USERS/SET_TOTAL_USERS_COUNT", count: totalUsersCount } as const),
+    setTotalUsersCount: (totalUsersCount: number) =>
+        ({ type: "SN/USERS/SET_TOTAL_USERS_COUNT", count: totalUsersCount } as const),
     toggleIsFetching: (isFetching: boolean) => ({ type: "SN/USERS/TOGGLE_IS_FETCHING", isFetching } as const),
     toggleFollowingProgress: (isFetching: boolean, userId: number) =>
         ({ type: "SN/USERS/TOGGLE_IS_FOLLOWING_PROGRESS", isFetching, userId } as const),
