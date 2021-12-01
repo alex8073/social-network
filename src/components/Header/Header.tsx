@@ -1,49 +1,49 @@
-import React from "react";
-import styles from "./Header.module.css";
-import { NavLink } from "react-router-dom";
-import { PropsType } from "./HeaderContainer";
+import { UserOutlined } from "@ant-design/icons";
+import { Avatar, Button, Col, Layout, Menu, Row } from "antd";
+import React, { useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { logout } from "../../redux/auth-reducer";
+import { selectIsAuth, selectCurrentUserLogin } from "../../redux/auth-selectors";
 
-const Header: React.FC<PropsType> = ({ isAuth, login, logout }) => {
+type HeaderPropsType = {};
+
+export const Header: React.FC<HeaderPropsType> = () => {
+    const { Header } = Layout;
+
+    const isAuth = useSelector(selectIsAuth);
+    const login = useSelector(selectCurrentUserLogin);
+
+    const dispatch = useDispatch();
+
+    const handleLogOut = useCallback(() => dispatch(logout()), []);
+
     return (
-        <header className={styles.header}>
-            <div className={styles.header_inner_wrapper}>
-                <div className={styles.logo_wrapper}>
-                    <NavLink to="/">
-                        <img className={styles.logo} src="https://senticode.by/img/SenticodeLogo.svg" alt="logo" />
-                    </NavLink>
-                </div>
-                <nav className={styles.navbar}>
-                    <ul className={styles.navbar_list}>
-                        <li className={styles.navbar_list_item}>
-                            <NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/profile">
-                                Профиль
-                            </NavLink>
-                        </li>
-                        <li className={styles.navbar_list_item}>
-                            <NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/dialogs">
-                                Dialogs
-                            </NavLink>
-                        </li>
-                        <li className={styles.navbar_list_item}>
-                            <NavLink className={styles.navbar_list_item_link} activeClassName={styles.active} to="/users">
-                                Users
-                            </NavLink>
-                        </li>
-                    </ul>
-                </nav>
-                <div className={styles.loginBlock}>
+        <Header className="header">
+            <Row align="middle" justify="space-between">
+                <Col span={6}>
+                    <Menu theme="dark" mode="horizontal" defaultSelectedKeys={["2"]} inlineCollapsed={false}>
+                        <Menu.Item key="1">
+                            <Link to="/developers">Developers</Link>
+                        </Menu.Item>
+                    </Menu>
+                </Col>
+                <Col>
                     {isAuth ? (
-                        <div>
-                            {login}
-                            <button onClick={logout}>Log out</button>
-                        </div>
+                        <>
+                            <Avatar style={{ backgroundColor: "#87d068" }} icon={<UserOutlined />} />
+                            <span style={{ color: "#fff", margin: "0 8px 0" }}>{login}</span>
+                            <Button type="primary" onClick={handleLogOut}>
+                                Log out
+                            </Button>
+                        </>
                     ) : (
-                        <NavLink to={"/login"}>Login</NavLink>
+                        <Button type="primary">
+                            <Link to={"/login"}>Login</Link>
+                        </Button>
                     )}
-                </div>
-            </div>
-        </header>
+                </Col>
+            </Row>
+        </Header>
     );
 };
-
-export default Header;

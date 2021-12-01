@@ -6,12 +6,12 @@ import { UsersSearchForm } from "./UsersSearchForm";
 import { FilterType, follow as f, requestUsers, unfollow as u } from "../../redux/users-reducer";
 import { useDispatch, useSelector } from "react-redux";
 import {
-    getCurrentPage,
-    getFollowingInProgress,
-    getPageSize,
-    getTotalUsersCount,
+    selectCurrentPage,
+    selectFollowingInProgress,
+    selectPageSize,
+    selectTotalUsersCount,
     getUsers,
-    getUsersFilter,
+    selectUsersFilter,
 } from "../../redux/users-selectors";
 import { useHistory } from "react-router";
 
@@ -19,11 +19,11 @@ type PropsType = {};
 
 export const Users: React.FC<PropsType> = () => {
     const users = useSelector(getUsers);
-    const totalUsersCount = useSelector(getTotalUsersCount);
-    const currentPage = useSelector(getCurrentPage);
-    const pageSize = useSelector(getPageSize);
-    const followingInProgress = useSelector(getFollowingInProgress);
-    const filter = useSelector(getUsersFilter);
+    const totalUsersCount = useSelector(selectTotalUsersCount);
+    const currentPage = useSelector(selectCurrentPage);
+    const pageSize = useSelector(selectPageSize);
+    const followingInProgress = useSelector(selectFollowingInProgress);
+    const filter = useSelector(selectUsersFilter);
 
     const dispatch = useDispatch();
     const history = useHistory();
@@ -45,7 +45,7 @@ export const Users: React.FC<PropsType> = () => {
 
     useEffect(() => {
         history.push({
-            pathname: "/users",
+            pathname: "/developers",
             search: `?term=${filter.term}&friend=${filter.friend}&page=${currentPage}`,
         });
     }, [filter, currentPage]);

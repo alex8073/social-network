@@ -1,9 +1,18 @@
-@import 'normalize.css';
-
-
+@import "normalize.css";
+@import "~antd/dist/antd.css";
 
 body {
-  background-color: #eee;
+    background-color: #eee;
 }
 
+.navbar_list_item_link {
+    display: block;
+    padding: 10px 20px;
+    font-size: 22px;
+    text-decoration: none;
+    white-space: nowrap;
+}
 
+.navbar_list_item_link.active {
+    color: rgb(71, 243, 229);
+}

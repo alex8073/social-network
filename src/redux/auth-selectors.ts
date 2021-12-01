@@ -1,8 +1,13 @@
 import { AppStateType } from "./redux-store";
 
-export const getCaptchaUrl = (state: AppStateType) => {
+export const selectCaptchaUrl = (state: AppStateType) => {
     return state.auth.captchaUrl;
 };
-export const getIsAuth = (state: AppStateType) => {
+
+export const selectIsAuth = (state: AppStateType) => {
     return state.auth.isAuth;
+};
+
+export const selectCurrentUserLogin = (state: AppStateType) => {
+    return state.auth.login;
 };

@@ -6,11 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { login } from "../../redux/auth-reducer";
 import { Redirect } from "react-router-dom";
 import styles from "../common/FormsControls/FormsControls.module.css";
-import { getCaptchaUrl, getIsAuth } from "../../redux/auth-selectors";
+import { selectCaptchaUrl, selectIsAuth } from "../../redux/auth-selectors";
 
 export const LoginPage: React.FC = () => {
-    const captchaUrl = useSelector(getCaptchaUrl);
-    const isAuth = useSelector(getIsAuth);
+    const captchaUrl = useSelector(selectCaptchaUrl);
+    const isAuth = useSelector(selectIsAuth);
     const dispatch = useDispatch();
 
     const onSubmit = (formData: LoginFormValuesType) => {
