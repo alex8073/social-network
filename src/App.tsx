@@ -18,6 +18,7 @@ const { Content, Footer, Sider } = Layout;
 
 const DialogsContainer = React.lazy(() => import("./components/Dialogs/DialogsContainer")); // Lazy-loaded
 const ProfileContainer = React.lazy(() => import("./components/Profile/ProfileContainer")); // Lazy-loaded
+const ChatPage = React.lazy(() => import("./views/chat/chat")); // Lazy-loaded
 
 type MapPropsType = ReturnType<typeof mapStateToProps>;
 type DispatchPropsType = {
@@ -76,7 +77,9 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                                         <Menu.Item key="8">option8</Menu.Item>
                                     </SubMenu>
                                     <SubMenu key="sub3" icon={<NotificationOutlined />} title="subnav 3">
-                                        <Menu.Item key="9">option9</Menu.Item>
+                                        <Menu.Item key="9">
+                                            <Link to="/chat">Chat</Link>
+                                        </Menu.Item>
                                         <Menu.Item key="10">option10</Menu.Item>
                                         <Menu.Item key="11">option11</Menu.Item>
                                         <Menu.Item key="12">option12</Menu.Item>
@@ -88,8 +91,12 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                                     <Switch>
                                         <Route path="/profile/:userId?" render={() => <ProfileContainer />} />
                                         <Route path="/dialogs" render={() => <DialogsContainer />} />
-                                        <Route path="/developers" render={() => <UsersPage pageTitle={"Самураи"} />} />
+                                        <Route
+                                            path="/developers"
+                                            render={() => <UsersPage pageTitle={"Developers"} />}
+                                        />
                                         <Route path="/login" render={() => <LoginPage />} />
+                                        <Route path="/chat" render={() => <ChatPage />} />
                                         <Route exact path="/" component={Welcome} />
                                         <Route path="*" render={() => <div>404 NOT FOUND</div>} />
                                     </Switch>
