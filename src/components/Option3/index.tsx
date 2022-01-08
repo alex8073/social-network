@@ -23,7 +23,6 @@ export const Option3 = React.memo((props: IOption3Props) => {
         { label: "Orange3", value: "orange3" },
         { label: "Orange4", value: "orange4" },
     ]);
-    console.log("selectedTables>>>>>>>", selectedValue);
 
     return (
         <SC.Option3>
@@ -51,10 +50,6 @@ const List = React.memo((props: IListProps) => {
     const [checkedAll, setCheckedAll] = React.useState<boolean>(false);
     const [indeterminate, setIndeterminate] = React.useState<boolean>(false);
 
-    const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(e.currentTarget.value);
-    }, []);
-
     useEffect(() => {
         setCheckedAll(selectedOptions.length === options.length);
         setIndeterminate(!!selectedOptions.length && selectedOptions.length < options.length);
@@ -63,6 +58,10 @@ const List = React.memo((props: IListProps) => {
     useEffect(() => {
         onChange([...selectedOptions]);
     }, [onChange, selectedOptions]);
+
+    const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(e.currentTarget.value);
+    }, []);
 
     const onCheckAllHandler = useCallback(
         (e: CheckboxChangeEvent) => {
