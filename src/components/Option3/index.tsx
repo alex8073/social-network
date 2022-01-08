@@ -19,23 +19,15 @@ const mockedOptions = [
 ];
 
 export const Option3 = React.memo((props: IOption3Props) => {
-    const [selectedTables, setSelectedTables] = React.useState<IOption[]>([]);
-    console.log("selectedTables>>>>>>>", selectedTables);
-
-    const [searchTerm, setSearchTerm] = React.useState<string>("");
-    const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-        setSearchTerm(e.currentTarget.value);
-    }, []);
+    const [selectedValue, setSelectedValue] = React.useState<IOption[]>([
+        { label: "Orange3", value: "orange3" },
+        { label: "Orange4", value: "orange4" },
+    ]);
+    console.log("selectedTables>>>>>>>", selectedValue);
 
     return (
         <SC.Option3>
-            <Input placeholder="Search tables" value={searchTerm} onChange={onChangeHandler} style={{ width: 200 }} />
-            <List
-                options={mockedOptions}
-                selectedTables={selectedTables}
-                onChange={setSelectedTables}
-                searchTerm={searchTerm}
-            />
+            <List options={mockedOptions} value={selectedValue} onChange={setSelectedValue} />
         </SC.Option3>
     );
 });
@@ -47,98 +39,86 @@ interface IOption {
 
 interface IListProps {
     options: IOption[];
-    selectedTables: IOption[];
-    searchTerm: string;
-    onChange: (checkedList: IOption[]) => void;
+    value: IOption[];
+    onChange: (value: IOption[]) => void;
 }
 
 const List = React.memo((props: IListProps) => {
-    const { options, selectedTables, searchTerm, onChange } = props;
+    const { options, value, onChange } = props;
 
-    const [selectedList, setSelectedList] = React.useState<IOption[]>(selectedTables);
-
-    const [visibleList, setVisibleList] = React.useState<IOption[]>([]);
-    const [visibleCheckedList, setVisibleCheckedList] = React.useState<IOption[]>([]);
-
+    const [selectedOptions, setSelectedOptions] = React.useState<IOption[]>(value);
+    const [searchTerm, setSearchTerm] = React.useState<string>("");
+    const [checkedAll, setCheckedAll] = React.useState<boolean>(false);
     const [indeterminate, setIndeterminate] = React.useState<boolean>(false);
-    const [checkAll, setCheckAll] = React.useState<boolean>(false);
+
+    const onChangeHandler = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+        setSearchTerm(e.currentTarget.value);
+    }, []);
 
     useEffect(() => {
-        setVisibleList(options.filter((i: IOption) => i.label.toLowerCase().includes(searchTerm.toLowerCase())));
-    }, [options, searchTerm]);
+        setCheckedAll(selectedOptions.length === options.length);
+        setIndeterminate(!!selectedOptions.length && selectedOptions.length < options.length);
+    }, [options, selectedOptions]);
 
     useEffect(() => {
-        setIndeterminate(!!visibleCheckedList.length && visibleCheckedList.length < visibleList.length);
-        setCheckAll(visibleList.every((e) => visibleCheckedList.some((i) => e.value === i.value)));
-    }, [visibleCheckedList, visibleList]);
-
-    console.log("checkedList>>>", visibleCheckedList.length);
-    console.log("visibleOptions>>>", visibleList.length);
-    console.log("checkAll>>", checkAll);
-
-    useEffect(() => {
-        setSelectedList(visibleCheckedList);
-    }, [visibleCheckedList, searchTerm, setSelectedList]);
-
-    useEffect(() => {
-        onChange(selectedList);
-    }, [selectedList, onChange]);
+        onChange([...selectedOptions]);
+    }, [onChange, selectedOptions]);
 
     const onCheckAllHandler = useCallback(
         (e: CheckboxChangeEvent) => {
             if (e.target.checked) {
-                setVisibleCheckedList((prev) => [...Array.from(new Set([...prev, ...visibleList]))]);
+                setSelectedOptions([...options]);
             } else {
-                setVisibleCheckedList((prev) => [...prev.filter((i) => !visibleList.some((e) => i.value === e.value))]);
+                setSelectedOptions([]);
             }
         },
-        [visibleList]
+        [options]
     );
 
     const onCheckHandler = useCallback(
         (e: CheckboxChangeEvent) => {
-            const isAlreadyChecked = visibleCheckedList.some((i) => e.target.value === i.value);
+            const isAlreadyChecked = selectedOptions.some((i) => e.target.value === i.value);
             if (isAlreadyChecked) {
-                setVisibleCheckedList((prev) => [...prev.filter((i) => i.value !== e.target.value)]);
+                setSelectedOptions((prev) => [...prev.filter((i) => i.value !== e.target.value)]);
             } else {
-                setVisibleCheckedList((prev) => [...prev, ...visibleList.filter((i) => i.value === e.target.value)]);
+                setSelectedOptions((prev) => [...prev, ...options.filter((i) => i.value === e.target.value)]);
             }
         },
-        [visibleCheckedList, visibleList]
+        [selectedOptions, options]
     );
 
     const checkAllCheckbox = useMemo(() => {
         return (
-            <Checkbox
-                indeterminate={indeterminate}
-                onChange={onCheckAllHandler}
-                checked={checkAll}
-                disabled={visibleList.length === 0}
-            >
+            <Checkbox indeterminate={indeterminate} onChange={onCheckAllHandler} checked={checkedAll}>
                 Check all
             </Checkbox>
         );
-    }, [checkAll, indeterminate, onCheckAllHandler, visibleList.length]);
+    }, [checkedAll, indeterminate, onCheckAllHandler]);
 
     const optionsList = useMemo(() => {
-        return visibleList.map((i) => {
-            return (
-                <Checkbox
-                    key={i.value}
-                    value={i.value}
-                    checked={visibleCheckedList.some((e) => e.value === i.value)}
-                    onChange={onCheckHandler}
-                >
-                    {i.label}
-                </Checkbox>
-            );
-        });
-    }, [visibleCheckedList, onCheckHandler, visibleList]);
+        return options
+            .filter((e) => e.label.toLowerCase().includes(searchTerm.toLowerCase()))
+            .map((i) => {
+                return (
+                    <Checkbox
+                        key={i.value}
+                        value={i.value}
+                        checked={selectedOptions.some((e) => e.value === i.value)}
+                        onChange={onCheckHandler}
+                    >
+                        {i.label}
+                    </Checkbox>
+                );
+            });
+    }, [options, selectedOptions, searchTerm, onCheckHandler]);
 
     return (
-        <SC.CheckboxGroup>
-            {checkAllCheckbox}
-            {optionsList.length > 0 ? optionsList : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />}
-        </SC.CheckboxGroup>
+        <>
+            <Input placeholder="Search tables" value={searchTerm} onChange={onChangeHandler} style={{ width: 200 }} />
+            <SC.CheckboxGroup>
+                {!searchTerm ? checkAllCheckbox : null}
+                {optionsList.length > 0 ? optionsList : <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} />}
+            </SC.CheckboxGroup>
+        </>
     );
 });
