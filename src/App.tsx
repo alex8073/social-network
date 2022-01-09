@@ -8,7 +8,7 @@ import "./App.css";
 import Preloader from "./components/common/Preloader/Preloader";
 import { Header } from "./components/Header/Header";
 import { LoginPage } from "./components/Login/Login";
-import { Option3 } from "./components/Option3";
+import { Form } from "./components/Form";
 import { UsersPage } from "./components/Users/UsersPage";
 import Welcome from "./components/Welcome/Welcome";
 import { initializeApp } from "./redux/app-reducer";
@@ -67,7 +67,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                                             <Link to="/dialogs">Dialogs</Link>
                                         </Menu.Item>
                                         <Menu.Item key="3">
-                                            <Link to="/option3">Option3</Link>
+                                            <Link to="/form">Форма</Link>
                                         </Menu.Item>
                                         <Menu.Item key="4">option4</Menu.Item>
                                     </SubMenu>
@@ -98,7 +98,7 @@ class App extends Component<MapPropsType & DispatchPropsType> {
                                             path="/developers"
                                             render={() => <UsersPage pageTitle={"Developers"} />}
                                         />
-                                        <Route path="/option3" render={() => <Option3 />} />
+                                        <Route path="/form" render={() => <Form />} />
                                         <Route path="/login" render={() => <LoginPage />} />
                                         <Route path="/chat" render={() => <ChatPage />} />
                                         <Route exact path="/" component={Welcome} />

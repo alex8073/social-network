@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-const Option3 = styled.div`
+const List = styled.div`
     display: flex;
     flex-direction: column;
-    gap: 8px;
+    gap: 12px;
 `;
 
 const CheckboxGroup = styled.div`
@@ -11,12 +11,11 @@ const CheckboxGroup = styled.div`
     .ant-checkbox-group {
         display: flex;
         flex-direction: column;
-        gap: 8px;
-        width: 200px;
+        gap: 12px;
     }
     .ant-checkbox-wrapper {
         margin: 0;
     }
 `;
 
-export const SC = { CheckboxGroup, Option3 };
+export const SC = { List, CheckboxGroup };
