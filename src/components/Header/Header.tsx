@@ -16,7 +16,7 @@ export const Header: React.FC<HeaderPropsType> = () => {
 
     const dispatch = useDispatch();
 
-    const handleLogOut = useCallback(() => dispatch(logout()), []);
+    const handleLogOut = useCallback(() => dispatch(logout()), [dispatch]);
 
     return (
         <Header className="header">

@@ -23,7 +23,7 @@ const Chat: React.FC = () => {
         return () => {
             dispatch(stopMessagesListening());
         };
-    }, []);
+    }, [dispatch]);
 
     return (
         <>

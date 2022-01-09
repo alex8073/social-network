@@ -41,14 +41,14 @@ export const Users: React.FC<PropsType> = () => {
             friend: friend === "true" ? true : friend === "false" ? false : null,
         };
         dispatch(requestUsers(actualPage, pageSize, actualFilter));
-    }, []);
+    }, [dispatch, filter, history.location.search, pageSize]);
 
     useEffect(() => {
         history.push({
             pathname: "/developers",
             search: `?term=${filter.term}&friend=${filter.friend}&page=${currentPage}`,
         });
-    }, [filter, currentPage]);
+    }, [filter, currentPage, history]);
 
     const onPageChanged = (pageNumber: number) => {
         dispatch(requestUsers(pageNumber, pageSize, filter));
