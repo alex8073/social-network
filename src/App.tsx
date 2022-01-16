@@ -1,6 +1,6 @@
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from "@ant-design/icons";
 import { Breadcrumb, Layout, Menu } from "antd";
-import React, { Component, Suspense } from "react";
+import React, { Component, Suspense, useState } from "react";
 import { connect, Provider } from "react-redux";
 import { HashRouter, Link, Route, Switch, withRouter } from "react-router-dom";
 import { compose } from "redux";
@@ -13,6 +13,11 @@ import { UsersPage } from "./components/Users/UsersPage";
 import Welcome from "./components/Welcome/Welcome";
 import { initializeApp } from "./redux/app-reducer";
 import store, { AppStateType } from "./redux/redux-store";
+import { GlobalStyles } from "./components/globalStyles";
+import { lightTheme, darkTheme } from "./components/Themes";
+import { ThemeProvider } from "styled-components";
+import { Toggle } from "./components/Toggler";
+import { useThemeMode } from "./components/useDarkMode";
 
 const { SubMenu } = Menu;
 const { Content, Footer, Sider } = Layout;
@@ -123,12 +128,21 @@ const mapStateToProps = (state: AppStateType) => ({
 let AppContainer = compose<React.ComponentType>(withRouter, connect(mapStateToProps, { initializeApp }))(App);
 
 const SamuraiJSApp: React.FC = () => {
+    const [theme, themeToggler, mountedComponent] = useThemeMode();
+    const themeMode = theme === "light" ? lightTheme : darkTheme;
+
+    if (!mountedComponent) return <div />;
+
     return (
-        <HashRouter>
-            <Provider store={store}>
-                <AppContainer />
-            </Provider>
-        </HashRouter>
+        <ThemeProvider theme={themeMode}>
+            <GlobalStyles />
+            <Toggle toggleTheme={themeToggler as () => void} />
+            <HashRouter>
+                <Provider store={store}>
+                    <AppContainer />
+                </Provider>
+            </HashRouter>
+        </ThemeProvider>
     );
 };
 
